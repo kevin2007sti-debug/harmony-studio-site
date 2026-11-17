@@ -1,0 +1,64 @@
+/* Motion library #08: Kinetic menu (full-screen menu). No dependencies.
+   Opening: the toggle's word rolls from "Menu" to "Close" and the plus turns into an X,
+   the page dims, three colour panels sweep in one after another from the side, and the
+   links rise into place with a slight rotation, one after another. Closing: the whole
+   panel slides back out. Taken from "sterling-gate-kinetic-navigation"; its demo links,
+   "click me" label, purple hover shapes and GSAP/CustomEase dependency were left out.
+   Colours, font and links come from the site. Panels come from the inline end, so on a
+   Hebrew (RTL) page they sweep in from the left. */
+
+.km-root{
+  --km-ease:cubic-bezier(.65,.01,.05,.99);
+  --km-time:.7s;
+  --km-ink:#f4f1ea;           /* link and toggle colour on the panel */
+  --km-layer-1:#2a2826;       /* first panel to sweep in */
+  --km-layer-2:#3b3835;
+  --km-bg:#161514;            /* the panel the links sit on */
+  --km-dim:rgba(0,0,0,.45);   /* page dim behind the panel */
+  --km-dir:1;
+}
+[dir=rtl] .km-root,.km-root[dir=rtl]{--km-dir:-1}
+
+/* Toggle */
+.km-toggle{position:relative;z-index:101;display:inline-flex;align-items:center;gap:.6em;min-height:44px;padding:0 .25em;
+  border:0;background:none;color:inherit;font:inherit;cursor:pointer}
+.km-toggle:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.km-toggle-text{display:block;height:1.25em;overflow:hidden;line-height:1.25em}
+.km-toggle-text>span{display:block;transition:transform var(--km-time) var(--km-ease)}
+.km-toggle[aria-expanded=true] .km-toggle-text>span{transform:translateY(-100%)}
+.km-toggle[aria-expanded=true] .km-toggle-text>span:last-child{transition-delay:.1s}
+.km-toggle svg{width:1em;height:1em;transition:transform var(--km-time) var(--km-ease)}
+.km-toggle[aria-expanded=true] svg{transform:rotate(315deg)}
+.km-root.is-open .km-toggle{color:var(--km-ink)}
+
+/* Layer */
+.km{position:fixed;inset:0;z-index:100;visibility:hidden;transition:visibility 0s var(--km-time)}
+.km.is-open{visibility:visible;transition:none}
+.km-overlay{position:absolute;inset:0;background:var(--km-dim);opacity:0;transition:opacity var(--km-time) var(--km-ease)}
+.km.is-open .km-overlay{opacity:1}
+
+.km-panel{position:absolute;top:0;bottom:0;inset-inline-end:0;width:min(100%,42rem);overflow:hidden;
+  transform:translateX(calc(var(--km-dir) * 120%));transition:transform var(--km-time) var(--km-ease)}
+.km.is-open .km-panel{transform:none;transition:none}
+
+.km-layer{position:absolute;inset:0;transform:translateX(calc(var(--km-dir) * 101%));
+  transition:transform .575s var(--km-ease)}
+.km-layer:nth-child(1){background:var(--km-layer-1)}
+.km-layer:nth-child(2){background:var(--km-layer-2);transition-delay:.12s}
+.km-layer:nth-child(3){background:var(--km-bg);transition-delay:.24s}
+.km.is-open .km-layer{transform:none}
+
+.km-list{position:relative;list-style:none;margin:0;height:100%;box-sizing:border-box;
+  padding:clamp(5rem,14vh,8rem) clamp(1.25rem,6vw,4rem) 2rem;display:flex;flex-direction:column;justify-content:center;gap:.1em;overflow-y:auto}
+.km-list li{overflow:hidden}
+.km-link{display:block;color:var(--km-ink);text-decoration:none;font-size:clamp(2.6rem,9vw,5.5rem);line-height:1;padding-block:.06em;
+  text-transform:uppercase;font-weight:800}
+.km-link>span{display:block;transform:translateY(140%) rotate(calc(var(--km-dir) * 10deg));transform-origin:0 100%;
+  transition:transform var(--km-time) var(--km-ease)}
+.km.is-open .km-link>span{transform:none;transition-delay:calc(.45s + var(--i, 0) * .05s)}
+.km-link:hover>span,.km-link:focus-visible>span{opacity:.65}
+.km-link:focus-visible{outline:2px solid var(--km-ink);outline-offset:4px}
+
+@media (prefers-reduced-motion:reduce){
+  .km-root *,.km,.km *{transition-duration:0s!important;transition-delay:0s!important}
+}

@@ -1,0 +1,28 @@
+/* Motion library #16: Gooey loader. CSS only, no dependencies.
+   Two blobs of liquid in brand colours roll across a short trough, merging and pulling
+   apart like thick paint (an SVG "goo" filter fuses their edges), on a solid bottom line.
+   Taken from "loader-10" (GooeyLoader): the animation only; the shadcn/cn wrapper and the
+   red demo colours were left out.
+   Uses: the site preloader (agency rule 4A, 0–100% splash) with a percentage under it,
+   form-sending states, or any wait over ~400ms.
+
+   Markup (the filter id must be unique on the page):
+   <div class="gl" role="status" aria-label="טוען">
+     <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+       <filter id="gl-goo"><feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b"/>
+       <feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 48 -7" result="g"/>
+       <feComposite in="SourceGraphic" in2="g" operator="atop"/></filter>
+     </svg>
+     <div class="gl-body"></div>
+   </div> */
+
+.gl{--gl-a:#c2552d;--gl-b:#e8a37f;--gl-line:color-mix(in oklab,currentColor 15%,transparent);--gl-size:16px;
+  position:relative;display:inline-flex;align-items:center;justify-content:center;font-size:var(--gl-size)}
+.gl-body{width:12em;height:3em;position:relative;overflow:hidden;border-bottom:8px solid var(--gl-line);filter:url(#gl-goo)}
+.gl-body::before,.gl-body::after{content:"";position:absolute;border-radius:50%}
+.gl-body::before{width:22em;height:18em;left:-2em;bottom:-18em;background:var(--gl-a);animation:gl-roll-a 2s linear infinite}
+.gl-body::after{width:16em;height:12em;left:-4em;bottom:-12em;background:var(--gl-b);animation:gl-roll-b 2s linear infinite .75s}
+@keyframes gl-roll-a{from{transform:translateX(-10em) rotate(0)}to{transform:translateX(7em) rotate(180deg)}}
+@keyframes gl-roll-b{from{transform:translateX(-8em) rotate(0)}to{transform:translateX(8em) rotate(180deg)}}
+/* Less motion: a slow, gentle sway instead of the constant roll. */
+@media (prefers-reduced-motion:reduce){.gl-body::before,.gl-body::after{animation-duration:8s}}

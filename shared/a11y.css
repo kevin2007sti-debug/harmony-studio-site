@@ -1,0 +1,60 @@
+/* Accessibility toolbar — shared by every page (index, privacy, terms, accessibility, English versions).
+   Fixed to the physical bottom-left corner in both directions. Every toggle is a class on <html>, so it composes with whatever page is showing.
+   Colours fall back to the site palette when a page does not define the variables. */
+.a11y-widget{
+  --a-forest:var(--forest,#1C3826); --a-forest-soft:var(--forest-soft,#3C6047); --a-canvas:var(--canvas,#F4EFE1); --a-canvas-deep:var(--canvas-deep,#E7DDC7);
+  --a-panel:var(--panel,#FFFCF4); --a-ink:var(--ink,#14241A); --a-accent:var(--accent,#D98324); --a-accent-hover:var(--accent-hover,#B56612); --a-accent-muted:var(--accent-muted,#F0D3A2);
+  --a-line:var(--line,rgba(28,56,38,.15)); --a-muted:var(--text-secondary,#4F6656); --a-ease:var(--ease,cubic-bezier(.22,.61,.36,1));
+  position:fixed;bottom:20px;left:20px;z-index:90;font-family:var(--label,"Rubik","Segoe UI",system-ui,sans-serif);direction:inherit
+}
+.a11y-toggle{
+  width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--a-forest);color:var(--a-canvas);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(20,34,24,.32);
+  transition:transform .25s var(--a-ease),background .25s var(--a-ease);
+}
+.a11y-toggle:hover{background:var(--a-forest-soft);transform:translateY(-2px)}
+.a11y-toggle svg{width:28px;height:28px}
+.a11y-widget.open .a11y-toggle{background:var(--a-accent);color:#211404}
+.a11y-panel{
+  position:absolute;bottom:64px;left:0;
+  width:250px;max-width:calc(100vw - 40px);
+  background:var(--a-panel);color:var(--a-ink);
+  border:1px solid var(--a-line);border-radius:16px;
+  box-shadow:0 20px 48px rgba(20,34,24,.28);
+  padding:8px;
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .22s var(--a-ease),transform .22s var(--a-ease),visibility .22s;
+}
+.a11y-widget.open .a11y-panel{opacity:1;visibility:visible;transform:translateY(0)}
+.a11y-panel__head{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.88rem;color:var(--a-forest);padding:10px 12px 8px}
+.a11y-panel__head svg{width:18px;height:18px;flex:none}
+.a11y-item{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:none;border:none;border-radius:10px;cursor:pointer;
+  padding:10px 12px;font-family:inherit;font-size:.9rem;color:var(--a-ink);
+  text-align:start;transition:background .2s var(--a-ease)
+}
+.a11y-item:hover{background:var(--a-canvas-deep)}
+.a11y-item svg{width:18px;height:18px;flex:none;color:var(--a-muted)}
+.a11y-item[aria-pressed="true"]{background:var(--a-accent-muted);font-weight:600}
+.a11y-item[aria-pressed="true"] svg{color:var(--a-accent-hover)}
+.a11y-item--link,.a11y-item--reset{border-block-start:1px solid var(--a-line);margin-block-start:4px;padding-block-start:12px;color:var(--a-forest);font-weight:600}
+.a11y-item--link{text-decoration:none}
+.a11y-toggle:focus-visible,.a11y-item:focus-visible{outline:3px solid var(--a-accent);outline-offset:2px}
+@media(pointer:coarse){.a11y-toggle{width:56px;height:56px}.a11y-item{min-height:44px}}
+@media (prefers-reduced-motion:reduce){.a11y-toggle,.a11y-panel,.a11y-item{transition:none}}
+
+/* ---- the toggles (generic; a page may add rules for its own components) ---- */
+html.a11y-grayscale{filter:grayscale(1)}
+html.a11y-invert{filter:invert(1) hue-rotate(180deg)}
+html.a11y-invert img,html.a11y-invert video,html.a11y-invert canvas{filter:invert(1) hue-rotate(180deg)}
+html.a11y-contrast body{background:#fff;color:#000}
+html.a11y-contrast :is(p,li,span,a,h1,h2,h3,h4,label,button,input,textarea,td,th,code,blockquote):not(.a11y-widget *){color:#000!important;text-shadow:none!important}
+html.a11y-contrast :is(section,header,main,footer,table,th,td,blockquote,code){background-color:#fff!important;background-image:none!important}
+html.a11y-contrast a:not(.a11y-widget *){color:#00248f!important;text-decoration:underline!important}
+html.a11y-lightbg :is(section,header,main){background-image:none!important;filter:none!important}
+html.a11y-links a:not(.a11y-widget *){text-decoration:underline!important;text-decoration-thickness:2px!important;background:#FFF3C4!important;color:#211404!important;border-radius:3px;padding-inline:2px}
+html.a11y-font body,html.a11y-font input,html.a11y-font textarea,html.a11y-font button{font-family:Arial,Helvetica,sans-serif!important}
+html.a11y-font h1,html.a11y-font h2,html.a11y-font h3,html.a11y-font h4{font-family:Arial,Helvetica,sans-serif!important;letter-spacing:normal!important}

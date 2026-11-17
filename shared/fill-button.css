@@ -1,0 +1,28 @@
+/* Motion library #25: Fill button. CSS only.
+   A pill button with a small brand-colour dot beside its word. On hover or keyboard focus
+   the dot swells to flood the whole button, the word slides out sideways, and the same
+   word with an arrow slides in on the brand colour. RTL-aware: on Hebrew pages it
+   slides the other way and the arrow points left.
+   Taken from magicui "interactive-hover-button": motion only; lucide and cn were left out.
+   Markup (the label appears twice; the second copy is hidden from screen readers):
+   <a class="fb" href="…"><span class="fb-text">הזמנת שולחן</span>
+     <span class="fb-hover" aria-hidden="true">הזמנת שולחן <span class="fb-arrow">→</span></span><span class="fb-dot"></span></a> */
+
+.fb{--fb-accent:#c2552d;--fb-on:#fff;--fb-dir:1;position:relative;display:inline-grid;place-items:center;min-width:8rem;min-height:44px;padding:0 1.5rem;
+  overflow:hidden;border-radius:999px;border:1px solid color-mix(in oklab,currentColor 25%,transparent);background:var(--bg,transparent);
+  color:inherit;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+[dir=rtl] .fb{--fb-dir:-1}
+.fb>*{grid-area:1/1}
+.fb-text{transform:translateX(calc(var(--fb-dir) * 4px));transition:transform .3s,opacity .3s}
+.fb-hover{z-index:2;display:inline-flex;align-items:center;gap:.5rem;color:var(--fb-on);opacity:0;
+  transform:translateX(calc(var(--fb-dir) * 3rem));transition:transform .3s,opacity .3s}
+[dir=rtl] .fb-arrow{transform:scaleX(-1)}
+/* Kevin, 21.10.2026: the resting dot looked like a stray mark next to the words. It is now invisible at rest and only
+   appears as it floods the button (hover / keyboard focus); on touch screens there is no dot at all. */
+.fb-dot{position:absolute;left:20%;top:40%;width:8px;height:8px;border-radius:8px;background:var(--fb-accent);opacity:0;transition:all .3s}
+[dir=rtl] .fb-dot{left:auto;right:20%}
+.fb:is(:hover,:focus-visible) .fb-text{transform:translateX(calc(var(--fb-dir) * 3rem));opacity:0}
+.fb:is(:hover,:focus-visible) .fb-hover{transform:translateX(calc(var(--fb-dir) * -4px));opacity:1}
+.fb:is(:hover,:focus-visible) .fb-dot{left:0;right:0;top:0;width:100%;height:100%;transform:scale(1.8);opacity:1}
+.fb:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.fb *{transition:none}}

@@ -1,0 +1,27 @@
+/* Motion library #14: Theme reveal. Pair with theme-reveal.js. */
+
+/* The new theme is clipped to the growing blob; the old one stays underneath. */
+:root[data-theme-reveal]::view-transition-group(root){animation:none}
+:root[data-theme-reveal]::view-transition-old(root){animation:none;z-index:1}
+:root[data-theme-reveal]::view-transition-new(root){animation:tr-hold 8s linear;clip-path:var(--tr-clip);z-index:2}
+@keyframes tr-hold{from{opacity:1}to{opacity:1}}
+
+/* Toggle: a pill with the sun/moon icon and a word. Colours come from the site's tokens. */
+.tr-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:0 16px;border-radius:999px;
+  border:1px solid var(--tr-edge,color-mix(in oklab,currentColor 30%,transparent));background:var(--tr-face,transparent);
+  color:inherit;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background .2s,border-color .2s}
+.tr-toggle:hover{background:color-mix(in oklab,currentColor 8%,transparent)}
+.tr-toggle:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.tr-toggle.tr-icon-only{padding:0;width:44px;justify-content:center}
+.tr-toggle.tr-icon-only .tr-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+.tr-toggle svg{width:22px;height:22px;overflow:visible;flex:none}
+.tr-rays{transform-origin:12px 12px;transition:transform .45s cubic-bezier(.3,1.2,.4,1),opacity .25s}
+.tr-rays line{stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
+.tr-body{fill:currentColor;transform-origin:12px 12px;transition:transform .45s cubic-bezier(.3,1.2,.4,1)}
+.tr-shadow{transition:transform .45s cubic-bezier(.3,1.2,.4,1)}
+.tr-toggle[aria-checked=true] .tr-rays{transform:rotate(45deg) scale(.4);opacity:0}
+.tr-toggle[aria-checked=true] .tr-body{transform:scale(1.25) rotate(-12deg)}
+.tr-toggle[aria-checked=false] .tr-shadow{transform:translate(9px,-9px)}
+
+@media (prefers-reduced-motion:reduce){.tr-rays,.tr-body,.tr-shadow{transition:none}}

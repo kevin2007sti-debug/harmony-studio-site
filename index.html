@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harmony Studio · ערין עוידאת – סדנאות אמנות</title>
+<meta name="description" content="סטודיו הרמוני של ערין עוידאת, מורה ומדריכה לאמנות חזותית: 26 סדנאות יצירה, מחרס ופסיפס ועד נרות, מקרמה וציור.">
+<meta name="robots" content="noindex,nofollow">
+<script>try{var t=localStorage.getItem('site-theme');document.documentElement.dataset.theme=t||'light';var l=localStorage.getItem('harmony-lang');if(l){document.documentElement.lang=l;document.documentElement.dir=l==='en'?'ltr':'rtl'}}catch(e){document.documentElement.dataset.theme='light'}</script>
+<link rel="preload" href="img/studio-boards-m.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="shared/fonts.css">
+<link rel="stylesheet" href="shared/fonts-rubik.css">
+<link rel="stylesheet" href="shared/theme-reveal.css">
+<link rel="stylesheet" href="shared/fill-button.css">
+<link rel="stylesheet" href="shared/kinetic-menu.css">
+<link rel="stylesheet" href="shared/gooey-loader.css">
+<link rel="stylesheet" href="shared/a11y.css">
+<style>
+:root{--app-accent:var(--clay)}
+:root,:root[data-theme=light]{--bg:#efe7da;--surface:#e3d7c3;--fg:#1d2419;--muted:#4f5548;--line:#cdbfa8;--clay:#a2461f;--clay-on:#fff;--olive:#33482f;--olive-on:#efe7da;--sand:#d9b98a;color-scheme:light}
+:root[data-theme=dark]{--bg:#12160f;--surface:#1c2218;--fg:#ece4d6;--muted:#b3ab9c;--line:#323a2c;--clay:#e07a52;--clay-on:#12160f;--olive:#22301f;--olive-on:#ece4d6;--sand:#c9a46e;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.7 Heebo,"Noto Sans Arabic",Tahoma,system-ui,sans-serif;overflow-x:hidden}
+:lang(ar) body{font-family:"Noto Sans Arabic",Tahoma,sans-serif}
+h1,h2,h3{font-family:Rubik,"Noto Sans Arabic",Tahoma,sans-serif;line-height:1.02;margin:0;font-weight:800;letter-spacing:-.02em}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--clay);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1240px,100% - 2rem);margin-inline:auto}
+.skip{position:absolute;inset-inline-start:1rem;top:-4rem;background:var(--fg);color:var(--bg);padding:.6rem 1rem;z-index:300;border-radius:8px}
+.skip:focus{top:1rem}
+
+.pre{position:fixed;inset:0;z-index:400;display:grid;place-items:center;align-content:center;gap:1rem;background:var(--olive);color:var(--olive-on);transition:opacity .5s,visibility .5s}
+.pre.done{opacity:0;visibility:hidden}
+.pre .gl{--gl-a:var(--clay);--gl-b:var(--sand);--gl-size:11px}
+.pre-n{font:800 2.4rem/1 Rubik,sans-serif;font-variant-numeric:tabular-nums}
+
+/* header */
+.top{position:absolute;top:0;inset-inline:0;z-index:50}
+.top .wrap{display:flex;align-items:center;gap:.8rem;min-height:72px}
+.logo{font:800 1.3rem/1 Rubik,sans-serif;text-decoration:none;letter-spacing:-.01em;margin-inline-end:auto}
+.logo span{color:var(--clay)}
+.langs{display:flex;border:1.5px solid var(--fg);border-radius:999px;overflow:hidden}
+.langs button{all:unset;cursor:pointer;min-width:38px;min-height:36px;display:grid;place-items:center;font-size:.85rem;font-weight:700}
+.langs button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
+.km-root{--km-ink:var(--olive-on);--km-layer-1:var(--clay);--km-layer-2:var(--sand);--km-bg:var(--olive);font-weight:700}
+.km-link{font-family:Rubik,"Noto Sans Arabic",sans-serif;text-transform:none}
+.km-meta{position:absolute;bottom:2rem;inset-inline:clamp(1.25rem,6vw,4rem);color:var(--km-ink);opacity:.8;font-size:.95rem}
+@media (max-width:520px){.km-toggle-text{display:none}}
+
+/* hero — poster */
+.hero{padding-top:clamp(6rem,14vw,9rem);padding-bottom:clamp(2rem,6vw,4rem)}
+.word{font-size:clamp(4.2rem,15vw,12rem);line-height:.86;color:var(--fg);margin:0}
+.word .dot{color:var(--clay)}
+:lang(ar) .word,:lang(en) .word{font-size:clamp(3.2rem,14vw,11rem)}
+.hero-grid{display:grid;gap:2rem;margin-top:clamp(1.5rem,4vw,2.5rem);align-items:start}
+@media (min-width:900px){.hero-grid{grid-template-columns:1fr 1.15fr}}
+.names{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;font:700 1rem/1.4 Rubik,sans-serif;color:var(--muted);margin-bottom:1.2rem}
+.names span:nth-child(2){font-family:"Noto Sans Arabic",Tahoma,sans-serif}
+.hero p.big{font:500 clamp(1.25rem,2.4vw,1.6rem)/1.45 Heebo,sans-serif;margin:0 0 1.6rem;max-width:30ch}
+.who{font-size:.98rem;color:var(--muted);margin:0 0 1.8rem}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.fb{--fb-accent:var(--clay);--fb-on:var(--clay-on);border-width:1.5px;border-color:var(--fg)}
+.fb.solid{background:var(--clay);color:var(--clay-on);border-color:var(--clay);--fb-accent:var(--fg);--fb-on:var(--bg)}
+.hero-photo{position:relative;margin:0}
+.hero-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
+.hero-photo figcaption{position:absolute;inset-inline-start:1rem;bottom:1rem;background:var(--bg);color:var(--fg);padding:.35rem .8rem;border-radius:999px;font-size:.85rem;font-weight:700}
+.stamp{position:absolute;top:-2.2rem;inset-inline-end:.8rem;width:110px;height:110px;border-radius:50%;background:var(--clay);color:var(--clay-on);display:grid;place-items:center;text-align:center;font:800 .95rem/1.15 Rubik,sans-serif;transform:rotate(-10deg);padding:.6rem}
+@media (max-width:600px){.stamp{width:88px;height:88px;font-size:.8rem;top:-1.6rem}}
+
+/* container scroll (motion 17) */
+.cs{--cs-bezel:var(--fg);--cs-rim:var(--clay)}
+.cs-title h2{font-size:clamp(2.2rem,6vw,4.4rem)}
+.cs-title p{color:var(--muted);margin:.8rem auto 4rem;max-width:44ch;font-size:1.1rem}
+.cs-screen img{object-position:50% 42%}
+
+/* quote — olive chapter */
+.quote{background:var(--olive);color:var(--olive-on);padding-block:clamp(4rem,10vw,8rem)}
+.quote blockquote{margin:0;font:800 clamp(2rem,5.5vw,4.2rem)/1.08 Rubik,sans-serif;letter-spacing:-.02em;max-width:18ch}
+.quote blockquote q{quotes:none}
+.quote .src{margin-top:1.6rem;display:flex;gap:.6rem;align-items:center;font-weight:600;opacity:.85}
+.quote .src::before{content:"";width:40px;height:2px;background:var(--sand)}
+.quote .ar{font-family:"Noto Sans Arabic",Tahoma,sans-serif;font-size:1.2rem;margin-top:2.4rem;opacity:.8;max-width:40ch}
+
+/* sections */
+section{scroll-margin-top:24px}
+.sec{padding-block:clamp(4rem,10vw,7.5rem)}
+.head{display:grid;gap:1rem;margin-bottom:2.5rem}
+@media (min-width:900px){.head{grid-template-columns:1fr 1fr;align-items:end}}
+.num{font:800 1rem/1 Rubik,sans-serif;color:var(--clay);display:block;margin-bottom:.8rem}
+.head h2{font-size:clamp(2.2rem,6vw,4.2rem)}
+.head p{color:var(--muted);margin:0;max-width:46ch;font-size:1.08rem}
+
+/* workshops — depth cards (motion 23) */
+.dc-in{--card:var(--olive)}
+.dc-front h3{font-size:1.7rem;font-family:Rubik,"Noto Sans Arabic",sans-serif}
+.dc-plain .dc-in{background:var(--clay)}
+.dc-plain .dc-in::after{background:none}
+.dc-plain .dc-glyph{position:absolute;inset:0;display:grid;place-items:center;font:800 9rem/1 Rubik,sans-serif;color:rgba(255,255,255,.18)}
+
+.quote-grid{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center}
+@media (min-width:900px){.quote-grid{grid-template-columns:1.4fr 1fr}}
+.quote-photo{margin:0;position:relative}
+.vis-p2{margin-top:1rem}.vis-p:empty{display:none}.vis-loc{margin-top:1.4rem}.vis-fam{display:block;margin-top:2rem;color:var(--sand)}
+.quote .hm-team{border-color:color-mix(in oklab,var(--olive-on) 35%,transparent);margin-top:.6rem}
+.quote .hm-member{border-color:color-mix(in oklab,var(--olive-on) 35%,transparent);padding-block:.9rem}
+.quote .hm-mono{width:52px;height:52px;font-size:1.4rem}.quote .hm-member:nth-child(2) .hm-mono{background:var(--olive-on);color:var(--olive)}.quote .hm-member h3{font-size:1.25rem}.quote .hm-member p{color:inherit;opacity:.85}
+.quote-photo .hv{height:auto;aspect-ratio:4/5;border-radius:6px}
+/* the studio film is a vertical phone video, so the rising "screen" is a phone, not a monitor */
+.cs-frame{max-width:min(23rem,82vw)!important;height:auto!important;aspect-ratio:9/16;border-radius:38px!important}
+.cs-screen{position:relative;border-radius:28px!important}
+.quote-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.dc-price{justify-self:start;background:var(--clay);color:var(--clay-on);font:800 .95rem/1 Rubik,sans-serif;padding:.45rem .8rem;border-radius:999px}
+.prices{margin-top:clamp(3.5rem,8vw,6rem);scroll-margin-top:24px}
+.prices-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem 2rem;margin-bottom:2rem}
+.prices-head h3{font-size:clamp(2rem,5vw,3.6rem)}
+.pl{display:grid;gap:0 clamp(2rem,5vw,4.5rem);border-top:1.5px solid var(--fg)}
+@media (min-width:820px){.pl{grid-template-columns:1fr 1fr}}
+.pl-group{padding-top:1.6rem}
+.pl-gh{font-size:1.05rem;letter-spacing:.02em;color:var(--clay);margin-bottom:.4rem}
+.pl-list{list-style:none;margin:0;padding:0}
+.pl-item{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line)}
+.pl-name{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+.pl-name b{font:700 1.15rem/1.3 Rubik,"Noto Sans Arabic",sans-serif}
+.pl-name small{font-size:.86rem;color:var(--muted);font-family:"Noto Sans Arabic",Tahoma,Heebo,sans-serif}
+.pl-dots{display:none}
+.pl-price{font:800 1.45rem/1 Rubik,sans-serif;white-space:nowrap}
+.group-cta{margin-top:2.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;background:var(--olive);color:var(--olive-on);border-radius:6px;padding:1.4rem clamp(1.2rem,3vw,2rem)}
+.group-cta p{margin:0;max-width:52ch}
+.group-cta b{font:800 1.3rem/1.2 Rubik,sans-serif;display:block}
+.pl-note{margin:1.4rem 0 0;color:var(--muted);font-size:.95rem}
+.slogan{display:block;font:800 1.1rem/1.4 Rubik,"Noto Sans Arabic",sans-serif;color:var(--fg)}
+.vis-h{font-size:clamp(2rem,5vw,3.6rem);margin:.4rem 0 1rem}
+.vis-p{max-width:48ch;opacity:.92;font-size:1.08rem}
+.quote blockquote{margin:1.8rem 0 0;font:700 clamp(1.15rem,2.2vw,1.45rem)/1.5 Rubik,"Noto Sans Arabic",sans-serif;letter-spacing:0;max-width:none;border-inline-start:4px solid var(--sand);padding-inline-start:1.2rem}
+.quote blockquote p{margin:0}
+.quote .num{color:var(--sand)}
+.hm-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.6rem}
+.hm-chips button{min-height:44px;padding:0 1.1rem;border-radius:999px;border:1.5px solid var(--fg);background:transparent;color:var(--fg);font:700 .95rem/1 Rubik,"Noto Sans Arabic",sans-serif;cursor:pointer}
+.hm-chips button[aria-pressed=true]{background:var(--clay);border-color:var(--clay);color:var(--clay-on)}
+.hm-wk-grid{list-style:none;margin:0;padding:0;display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.hm-wk.dc .dc-in{min-height:0;height:100%;display:flex;flex-direction:column;background:var(--surface);border-radius:8px}
+.hm-wk.dc .dc-in::after{display:none}
+.hm-wk-media{aspect-ratio:4/3;overflow:hidden;transform:translateZ(-6px)}
+.hm-wk-img{width:100%;height:100%;object-fit:cover;display:block}
+.hm-wk-art{display:grid;place-items:center;width:100%;height:100%;font:800 5.2rem/1 Rubik,"Noto Sans Arabic",sans-serif;color:rgba(255,255,255,.9)}
+.hm-g0{background:#a2461f}.hm-g1{background:#33482f}.hm-g2{background:#8a6a2c}.hm-g3{background:#1d2419}
+.hm-wk-play{position:absolute;bottom:.7rem;inset-inline-start:.7rem;display:inline-flex;align-items:center;gap:.4rem;min-height:40px;padding:0 .9rem;border:0;border-radius:999px;background:rgba(18,22,15,.75);color:#fff;font:700 .9rem/1 Rubik,sans-serif;cursor:pointer}
+.hm-wk-play svg{width:16px;height:16px}
+.hm-wk-body{padding:1rem 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.15rem;flex:1;transform:translateZ(20px)}
+.hm-wk-body h3{font-size:1.35rem}
+.hm-wk-n2{color:var(--muted);font-size:.85rem;font-family:"Noto Sans Arabic",Tahoma,Heebo,sans-serif}
+.hm-wk-body p{margin:.45rem 0 .8rem;color:var(--muted);font-size:.95rem;line-height:1.55}
+.hm-wk-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.6rem;border-top:1.5px solid var(--fg);padding-top:.6rem}
+.hm-wk-price{font:800 1.45rem/1 Rubik,sans-serif}
+.hm-wk-cta{font-weight:800;color:var(--clay);text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:.3rem}
+@media (max-width:560px){.hm-wk.dc .dc-in{flex-direction:row}.hm-wk-media{width:38%;flex:none;aspect-ratio:auto;min-height:100%}.hm-wk-art{font-size:3rem;min-height:9rem}.hm-wk-body{padding:.8rem .9rem}.hm-wk-body h3{font-size:1.15rem}.hm-wk-body p{font-size:.88rem;margin:.3rem 0 .5rem}.hm-wk-play span{display:none}.hm-wk-play{padding:0 .7rem}}
+.hm-wk-note{margin:1.6rem 0 0;color:var(--muted);font-size:.95rem}
+.hm-wk-note a{color:var(--clay);font-weight:700}
+.exp{background:var(--surface)}
+.exp-list{display:grid;gap:0;border-top:1.5px solid var(--fg)}
+.exp-row{display:grid;gap:1.2rem;padding-block:1.8rem;border-bottom:1.5px solid var(--fg);align-items:center}
+@media (min-width:860px){.exp-row{grid-template-columns:4.5rem 300px 1fr;gap:2rem}}
+.exp-row .n{font:800 2.6rem/1 Rubik,sans-serif;color:var(--clay)}
+.exp-media{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:6px}
+.exp-media img,.exp-media video{width:100%;height:100%;object-fit:cover;display:block}
+.exp-txt h3{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:.5rem}
+.exp-txt p{margin:0 0 .8rem;color:var(--muted);max-width:60ch}
+.exp-cta{font-weight:800;color:var(--clay)}
+.gal{background:#12160f;color:#ece4d6}
+:root[data-theme=dark] .gal{background:#0b0d09}
+.gal .head p{color:#bdb4a3}.gal .num{color:#e07a52}
+.hm-gal{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:700px){.hm-gal{grid-template-columns:repeat(3,1fr)}}@media (min-width:1000px){.hm-gal{grid-template-columns:repeat(4,1fr)}}
+.hm-gal-item{all:unset;box-sizing:border-box;display:block;position:relative;cursor:zoom-in;aspect-ratio:1;overflow:hidden;border-radius:6px;width:100%}
+.hm-gal-item:focus-visible{outline:3px solid #e07a52;outline-offset:3px}
+.hm-gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,filter .5s}
+.hm-gal-item:hover img{transform:scale(1.05)}
+.hm-gal-badge{position:absolute;top:.6rem;inset-inline-start:.6rem;width:38px;height:38px;border-radius:50%;background:#e07a52;display:grid;place-items:center;color:#12160f}
+.hm-gal-badge svg{width:16px;height:16px}
+.hm-team{list-style:none;margin:0;padding:0;display:grid;border-top:1.5px solid var(--fg)}
+.hm-member{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.4rem;align-items:center;padding-block:1.4rem;border-bottom:1.5px solid var(--fg)}
+.hm-mono{grid-row:span 2;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:var(--clay);color:var(--clay-on);font:800 2rem/1 Rubik,"Noto Sans Arabic",sans-serif}
+.hm-member:nth-child(2) .hm-mono{background:var(--olive);color:var(--olive-on)}.hm-member:nth-child(3) .hm-mono{background:var(--sand);color:#1d2419}
+.hm-member h3{font-size:clamp(1.4rem,3vw,2rem)}.hm-member p{margin:0;color:var(--muted)}
+.loc{background:var(--olive);color:var(--olive-on)}
+.loc .num{color:var(--sand)}
+.loc-grid{display:grid;gap:2rem;align-items:center}
+@media (min-width:900px){.loc-grid{grid-template-columns:1fr 1.1fr}}
+.loc h2{font-size:clamp(2.2rem,6vw,4rem);margin:.4rem 0 1rem}
+.loc p{opacity:.92;max-width:48ch}
+.hm-map{aspect-ratio:4/3;border-radius:8px;overflow:hidden;border:5px solid var(--sand);background:var(--bg);color:var(--fg)}
+.hm-map-face{height:100%;display:grid;place-items:center;align-content:center;gap:.9rem;text-align:center;padding:1.5rem;
+  background-image:repeating-linear-gradient(30deg,transparent 0 40px,color-mix(in oklab,var(--olive) 20%,transparent) 40px 42px),repeating-linear-gradient(-60deg,transparent 0 56px,color-mix(in oklab,var(--clay) 16%,transparent) 56px 58px)}
+.hm-map-area{font:800 1.15rem/1.45 Rubik,"Noto Sans Arabic",sans-serif;margin:0;max-width:30ch}
+.hm-map-load{min-height:48px;padding:0 1.4rem;border-radius:999px;border:0;background:var(--clay);color:var(--clay-on);font:800 1rem/1 Rubik,sans-serif;cursor:pointer}
+.hm-map-face small{color:var(--muted)}
+.hm-navs{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.hm-nav{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 1.1rem;border-radius:999px;background:var(--sand);color:#1d2419;font-weight:800;text-decoration:none}
+.hm-nav svg{width:18px;height:18px}
+.hm-social{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.8rem}
+.hm-soc{display:inline-flex;align-items:center;gap:.6rem;min-height:52px;padding:0 1.4rem;border-radius:999px;background:var(--clay-on);color:var(--clay);font-weight:800;text-decoration:none;transition:transform .2s}
+.hm-soc:hover{transform:translateY(-2px)}
+.hm-soc svg{width:22px;height:22px}
+.hm-reel{margin-bottom:2rem;color:#ece4d6}
+.hm-dock{color:var(--clay-on);margin-top:1rem}.hm-dock .fd-tip{color:var(--fg)}
+.hm-dock .fd-item{width:52px;height:52px}
+@media (max-width:767px){.hm-dock .fd-toggle{display:none!important}.hm-dock .fd-list{position:static!important;visibility:visible!important;flex-direction:row!important;height:auto!important;gap:.8rem!important;padding:.7rem .9rem!important;margin:0!important;background:rgba(255,255,255,.14)!important;border-radius:1rem!important;width:max-content}.hm-dock .fd-list li,.hm-dock .fd-item{opacity:1!important;transform:none!important;visibility:visible!important}}
+.exp-icon{display:grid;place-items:center;background:var(--olive);color:var(--olive-on)}.exp-icon svg{width:42%;height:auto}
+@media (max-width:860px){.exp-row{grid-template-columns:112px 1fr;gap:.6rem 1rem;padding-block:1.2rem}.exp-row .n{display:none}.exp-row .exp-media{aspect-ratio:1}.exp-txt h3{font-size:1.25rem}.exp-txt p{font-size:.92rem;margin-bottom:.4rem}}
+/* app screens: the header floats over the top, so each screen after the first starts below it */
+.view:not(#view-home)>section:first-child{padding-top:clamp(6.5rem,15vw,8.5rem)}
+/* one-version merge (29.10.2026) */
+.moments{background:#12160f;color:#ece4d6;padding-block:clamp(1.5rem,4vw,3rem)}
+:root[data-theme=dark] .moments{background:#0b0d09}
+.moments .hm-reel{margin:0}
+.hm-stairs{color:var(--fg);margin-top:.5rem}
+.stc-title{font:800 clamp(1.1rem,2.4vw,1.6rem)/1.2 Rubik,"Noto Sans Arabic",sans-serif;unicode-bidi:plaintext}
+.hm-stairs-cta{text-align:center;margin-top:1.2rem}
+.hm-stairs-cta .hm-wk-cta{min-height:52px;padding:0 1.6rem;border-radius:999px;background:var(--clay);color:var(--clay-on);font-weight:800}
+.exp-grid{display:grid;gap:1.3rem}
+@media (min-width:900px){.exp-grid{grid-template-columns:repeat(3,1fr)}}
+.exp-grid .dc{height:100%}
+.exp-card.dc-in{min-height:0;height:100%;display:flex;flex-direction:column;background:var(--bg)!important;color:var(--fg);border-radius:8px}
+.exp-card.dc-in::after{display:none}
+.exp-card .exp-media{aspect-ratio:4/3;border-radius:0}
+.exp-card .exp-txt{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.4rem;flex:1;transform:translateZ(20px)}
+.exp-card .n{font:800 1.6rem/1 Rubik,sans-serif;color:var(--clay)}
+.exp-card .exp-cta{margin-top:auto}
+@media (max-width:560px){.exp-card.dc-in{flex-direction:row}.exp-card .exp-media{width:36%;aspect-ratio:auto;flex:none}.exp-card .exp-txt{padding:.9rem 1rem}.exp-card .n{display:none}.exp-txt h3{font-size:1.2rem}.exp-txt p{font-size:.92rem}}
+.gal{padding-top:0}
+.hm-orbit .oa-intro h2{font:800 clamp(2rem,6vw,4rem)/1.05 Rubik,"Noto Sans Arabic",sans-serif;color:#ece4d6;margin:0}
+.hm-orbit .oa-intro p{margin:.8rem 0 0;font-size:.85rem;letter-spacing:.2em;color:#e07a52;font-weight:700}
+.hm-orbit .oa-after h2{font:800 clamp(1.8rem,5vw,3.2rem)/1.1 Rubik,"Noto Sans Arabic",sans-serif;color:#ece4d6;margin:0 0 .6rem}
+.hm-orbit .oa-after p{margin:0;color:#bdb4a3}
+.hm-orbit .oa-cards img{width:clamp(64px,8vw,96px);height:clamp(90px,11.5vw,136px);margin:calc(clamp(90px,11.5vw,136px) / -2) 0 0 calc(clamp(64px,8vw,96px) / -2)}
+.hm-lc{--lc-card:var(--bg);color:var(--fg)}
+.hm-lc .lc-more{color:var(--olive-on)}
+/* closing section (29.10.2026): one colour, WhatsApp first, then Waze */
+.finale{background:var(--surface)}
+.finale-head{text-align:center;margin-bottom:2rem}
+.finale-head h2{font-size:clamp(2.2rem,7vw,4.2rem)}
+.steps{list-style:none;margin:0 auto;padding:0;max-width:40rem;display:grid;gap:0}
+.step{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;align-items:start;background:var(--bg);border:1.5px solid var(--fg);border-radius:18px;padding:1.3rem 1.3rem 1.4rem}
+.step-n{grid-row:span 2;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--clay);color:var(--clay-on);font:800 1.4rem/1 Rubik,sans-serif}
+.step-txt h3{font-size:clamp(1.35rem,3vw,1.7rem);margin:0 0 .25rem}
+.step-txt p{margin:0;color:var(--muted)}
+.step-btn{grid-column:1/-1;margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:.7rem;min-height:58px;padding:0 1.4rem;border-radius:999px;font:800 1.15rem/1 Rubik,"Noto Sans Arabic",sans-serif;text-decoration:none;transition:transform .2s}
+.step-btn:hover{transform:translateY(-2px)}
+.step-btn svg{width:30px;height:30px;flex:none}
+.step-wa{background:#168f4f;color:#fff}
+.step-waze{background:#33ccff;color:#0f1a24}
+.step-waze .go{font-size:1.4rem;transition:transform .3s}
+.step-waze:hover .go{transform:translateX(-6px)}
+[dir=ltr] .step-waze .go{transform:scaleX(-1)}[dir=ltr] .step-waze:hover .go{transform:scaleX(-1) translateX(-6px)}
+.step-arrow{display:grid;place-items:center;height:64px;color:var(--clay)}
+.step-arrow svg{width:34px;height:34px}
+@media (prefers-reduced-motion:no-preference){.step-arrow svg{animation:step-bob 1.6s ease-in-out infinite}}
+@keyframes step-bob{50%{transform:translateY(8px)}}
+.follow{margin-top:2.2rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;color:var(--muted);font-weight:700}
+.follow .hm-dock{color:var(--fg);margin:0}
+.follow-p{margin:0;max-width:44ch;text-align:center;font-weight:400}.follow-p:empty{display:none}
+/* opening card: fits between the header and the tab bar (29.10.2026) */
+.hero2{padding:calc(72px + .1rem) clamp(.6rem,2vw,1.2rem) .9rem}
+.hero2-card{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;display:flex;align-items:stretch;
+  height:calc(100svh - 72px - var(--tabbar,68px) - 1.1rem - env(safe-area-inset-bottom,0px));min-height:380px;max-height:900px}
+.hero2-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 52%;z-index:-2}
+.hero2-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(18,22,15,.94) 0%,rgba(18,22,15,.78) 30%,rgba(18,22,15,.2) 56%,rgba(18,22,15,0) 70%,rgba(18,22,15,.6) 100%)}
+.hero2-in{padding:clamp(1.1rem,4vw,3rem);color:#f4efe6;width:100%;display:flex;flex-direction:column}
+.hero2 .names{color:#e9c9a6;margin:0 0 .2rem;font-size:.9rem;gap:.2rem 1rem}
+.hero2 .word{color:#fff;font-size:clamp(3.2rem,12.5vw,8.5rem);line-height:.92;margin:0 0 .6rem}
+.hero2 .word .dot{color:#e07a52}
+.hero2 .big{font-size:clamp(1rem,2.1vw,1.35rem);line-height:1.5;margin:0 0 .45rem;color:#f4efe6;max-width:40ch}
+.hero2 .who{color:#d9cdb9;font-size:.88rem;margin:0 0 1rem}
+.hero2 .actions{gap:.6rem;margin-top:auto}
+.hero2 .fb.solid{background:#e07a52;border-color:#e07a52;color:#12160f}
+.hero2 .fb:not(.solid){color:#fff;border-color:rgba(255,255,255,.75);background:transparent}
+@media (max-height:740px){.hero2 .who{display:none}}
+@media (max-height:640px){.hero2 .names{display:none}.hero2 .big{font-size:.95rem}.hero2 .word{font-size:clamp(2.8rem,11vw,5rem)}}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
+/* stories — dark strip with scroll-snap */
+.stories{background:#12160f;color:#ece4d6}
+:root[data-theme=dark] .stories{background:#0b0d09}
+.stories .head p{color:#bdb4a3}
+.stories .num{color:#e07a52}
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,300px);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;scrollbar-width:thin}
+.strip a{scroll-snap-align:start;position:relative;aspect-ratio:9/15;border-radius:6px;overflow:hidden;text-decoration:none;color:#fff;isolation:isolate}
+.strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.strip a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(0,0,0,.85),transparent 60%)}
+.strip b{position:absolute;inset-inline:1rem;bottom:1rem;font:800 1.25rem/1.25 Rubik,"Noto Sans Arabic",sans-serif}
+.strip .idx{position:absolute;top:1rem;inset-inline-start:1rem;font:800 .9rem/1 Rubik,sans-serif;color:#e07a52;background:rgba(0,0,0,.45);padding:.35rem .6rem;border-radius:999px}
+
+/* community */
+.c-list{display:grid;gap:0;border-top:1.5px solid var(--fg)}
+.c-item{display:grid;gap:1.2rem;padding-block:1.8rem;border-bottom:1.5px solid var(--fg);align-items:center}
+@media (min-width:800px){.c-item{grid-template-columns:5rem 1fr 280px}}
+.c-item .n{font:800 2.6rem/1 Rubik,sans-serif;color:var(--clay)}
+.c-item h3{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:.4rem}
+.c-item p{margin:0;color:var(--muted)}
+.c-item small{display:block;font-weight:700;margin-bottom:.4rem}
+.c-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+
+/* contact — clay chapter */
+.contact{background:var(--clay);color:var(--clay-on)}
+.contact .wrap{display:grid;gap:2rem;align-items:end}
+@media (min-width:900px){.contact .wrap{grid-template-columns:1.3fr 1fr}}
+.contact h2{font-size:clamp(2.6rem,8vw,6rem)}
+.contact p{margin:0 0 1.5rem;font-size:1.1rem;opacity:.95}
+.contact .fb{background:var(--clay-on);color:var(--clay);border-color:var(--clay-on);--fb-accent:var(--fg);--fb-on:var(--bg);min-height:52px;font-size:1.05rem}
+.handle{font:800 1.3rem/1 Rubik,sans-serif;margin-top:1.2rem;display:inline-block}
+.foot{padding:2rem 0 6rem;font-size:.9rem;color:var(--muted)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between}
+.foot-legal{display:flex;flex-wrap:wrap;gap:0 1.2rem;align-items:center}.foot-legal a{display:inline-flex;align-items:center;min-height:44px;color:var(--fg);text-underline-offset:3px}
+.foot-credit{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line);justify-content:center!important}
+.dorb-credit{display:inline-flex;align-items:center;gap:12px;padding:10px 18px;min-height:48px;border-radius:14px;background:#000;color:#fff;border:1px solid rgba(255,255,255,.22);box-shadow:0 6px 18px rgba(0,0,0,.18);text-decoration:none;font:600 14px/1.2 Rubik,Heebo,"Noto Sans Arabic",sans-serif;transition:transform .2s,box-shadow .2s}.dorb-credit:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}.dorb-credit img{display:block;width:110px;height:auto;mix-blend-mode:screen}.dorb-credit:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+
+.dm{position:fixed;bottom:1.1rem;right:1.1rem;z-index:60;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--clay);color:var(--clay-on);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.dm svg{width:26px;height:26px}
+.ab{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:60;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--fg);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.ab a{min-width:44px;min-height:36px;display:grid;place-items:center;border-radius:999px;color:var(--bg);text-decoration:none;font:800 .9rem/1 Rubik,sans-serif}
+.ab a[aria-current=page]{background:var(--clay);color:var(--clay-on)}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="pre" id="pre" role="status" aria-live="polite">
+  <div class="gl" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute"><filter id="gl-goo"><feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b"/><feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 48 -7" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></svg>
+    <div class="gl-body"></div>
+  </div>
+  <span class="pre-n" id="preN">0%</span>
+</div>
+
+<a class="skip" href="#main" data-i18n="skip">דילוג לתוכן</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#main">Harmony<span>.</span></a>
+    <div class="langs" role="group" aria-label="שפה">
+      <button type="button" data-lang="he" lang="he">עב</button>
+      <button type="button" data-lang="ar" lang="ar">ع</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+    <button class="tr-toggle" type="button" role="switch" aria-checked="false" aria-label="מצב כהה">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <defs><mask id="tr-moon"><rect x="-4" y="-4" width="32" height="32" fill="white"/><circle class="tr-shadow" cx="17" cy="7" r="6" fill="black"/></mask></defs>
+        <g class="tr-rays"><line x1="12" y1="1.5" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="22.5" y2="12"/><line x1="4.6" y1="4.6" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.4" y2="4.6"/></g>
+        <circle class="tr-body" cx="12" cy="12" r="6" mask="url(#tr-moon)"/>
+      </svg>
+    </button>
+    <div class="km-root">
+      <button class="km-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="km-toggle-text"><span data-i18n="menu">תפריט</span><span data-i18n="close">סגירה</span></span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7.33 0h1.34v16H7.33zM0 7.33h16v1.34H0z" fill="currentColor"/></svg>
+      </button>
+      <div class="km" id="site-menu">
+        <div class="km-overlay"></div>
+        <nav class="km-panel" aria-label="תפריט ראשי" data-i18n-aria="navLabel">
+          <div class="km-layer"></div><div class="km-layer"></div><div class="km-layer"></div>
+          <ul class="km-list">
+            <li style="--i:0"><a class="km-link" href="#inside"><span data-i18n="nav1">הסטודיו</span></a></li>
+            <li style="--i:1"><a class="km-link" href="#workshops"><span data-i18n="nav2">סדנאות</span></a></li>
+            <li style="--i:2"><a class="km-link" href="#gallery"><span data-i18n="nav3">גלריה</span></a></li>
+            <li style="--i:3"><a class="km-link" href="#location"><span data-i18n="nav5">מיקום</span></a></li>
+            <li style="--i:4"><a class="km-link" href="#contact"><span data-i18n="nav4">יצירת קשר</span></a></li>
+          </ul>
+          <p class="km-meta">@areen_awidat</p>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero2" id="top">
+    <div class="hero2-card">
+      <img decoding="async" class="hero2-img" src="img/studio-boards-m.webp" srcset="img/studio-boards-m.webp 700w, img/studio-boards.webp 1066w" sizes="100vw" alt="שולחן הסדנה ערוך עם לוחות עגולים, מכחולים וצבעים, מתחת לצמחים ולמטריות המצוירות" data-i18n-alt="altHeroBoards" width="1066" height="1600" fetchpriority="high">
+      <div class="hero2-in">
+        <div class="names" aria-hidden="true"><span>Harmony Studio</span><span lang="ar">استوديو هارموني للفنون</span></div>
+        <h1 class="word"><span data-i18n="word">הרמוני</span><span class="dot">.</span></h1>
+        <p class="big" data-i18n="heroP">סטודיו לאמנות שבו משאירים את הטלפון בצד, נותנים מקום ליצירתיות, ויוצאים עם יצירה שעשיתם בעצמכם וזיכרון טוב שנשאר איתכם.</p>
+        <p class="who" data-i18n="who">ערין עוידאת | מורה ומדריכה לאמנות חזותית</p>
+        <div class="actions">
+          <a class="fb solid" href="https://ig.me/m/areen_awidat" target="_blank" rel="noopener"><span class="fb-text" data-i18n="cta1">לשריון מקום בסדנה</span><span class="fb-hover" aria-hidden="true"><span data-i18n="cta1">לשריון מקום בסדנה</span> <span class="fb-arrow">→</span></span><span class="fb-dot"></span></a>
+          <a class="fb" href="#workshops"><span class="fb-text" data-i18n="cta2">לסדנאות</span><span class="fb-hover" aria-hidden="true"><span data-i18n="cta2">לסדנאות</span> <span class="fb-arrow">→</span></span><span class="fb-dot"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs" id="inside" data-container-scroll>
+    <div class="cs-title wrap">
+      <span class="num" data-i18n="n1">01 · הסטודיו</span>
+      <h2 data-i18n="csH">מוכנים לראות את הרמוני בלוק החדש?</h2>
+      <p data-i18n="csP">וילונות מקרמה, ארונות עץ ישנים, כן ציור מול החלון, חדר ירוק ופטיו עם כיסאות צהובים בגינה. שולחן עבודה אחד ארוך, וכולם יושבים סביבו.</p>
+    </div>
+    <div class="cs-frame"><div class="cs-screen hv-wrap"><video class="hv" muted playsinline loop preload="none" poster="img/studio-film-poster.webp" data-src="media/studio-film.mp4" aria-label="סרטון: סיור קצר בסטודיו הרמוני בלוק החדש" data-i18n-aria="vFilm"></video></div></div>
+  </section>
+
+  <section class="quote" id="vision">
+    <div class="wrap rv quote-grid">
+      <div>
+        <span class="num" data-i18n="visEye">החזון של הרמוני</span>
+        <h2 class="vis-h" data-i18n="visH">הרבה מעבר לסטודיו לאמנות.</h2>
+        <p class="vis-p" data-i18n="visP1">הרמוני הוא הרבה מעבר לסטודיו לאמנות. זהו בית ליצירה, לחיבור בין אנשים, לתרבות ולחוויה. מקום שבו האמנות פוגשת את הטבע, המסורת והאירוח האותנטי.</p>
+        <p class="vis-p vis-p2" data-i18n="visP2"></p>
+        <blockquote><p data-i18n="visQ">״אני מאמינה שכל אדם יכול ליצור, להתחבר לעצמו ולגלות את הכוח שבאמנות. בהרמוני כל מפגש הוא חוויה המשלבת יצירה, אנשים, טבע ואירוח מכל הלב.״</p><footer class="src" data-i18n="visBy">ערין עוידאת, מייסדת הסטודיו</footer></blockquote>
+        <p class="vis-p vis-loc" data-i18n="locP">הסטודיו שוכן בלב מטעי הדובדבנים, בין מסעדה למג׳דל שמס, בדרך לברכת רם, מוקף בנוף קסום שמעניק השראה, שלווה וחיבור לטבע.</p>
+        <span class="num vis-fam" data-i18n="famEye">משפחת הרמוני</span>
+        <div id="team"></div>
+      </div>
+      <figure class="quote-photo hv-wrap"><video class="hv" muted playsinline loop preload="none" poster="img/studio-lounge-poster.webp" data-src="media/studio-lounge.mp4" aria-label="סרטון: פינת הישיבה בסטודיו, כן הציור ומנורת המקרמה מול החלונות" data-i18n-aria="vLounge"></video></figure>
+    </div>
+  </section>
+
+  <section class="sec" id="workshops">
+    <div class="wrap">
+      <div class="head rv">
+        <div><span class="num" data-i18n="n2">02 · סדנאות</span><h2 data-i18n="wsH">סדנאות יצירה לכל הטעמים.</h2></div>
+        <p data-i18n="wsP">הצצה לכמה מהסדנאות שלנו. את כל הסדנאות והמחירים תמצאו במחירון המלא למטה.</p>
+      </div>
+      <div id="wk"></div>
+    </div>
+  </section>
+
+  <section class="exp sec" id="experiences">
+    <div class="wrap">
+      <div class="head rv"><div><span class="num" data-i18n="expEye">חוויות</span><h2 data-i18n="expH">לא רק סדנה. חוויה שלמה.</h2></div></div>
+      <div class="exp-grid">
+        <article class="dc"><div class="dc-in exp-card"><div class="exp-media"><img decoding="async" src="img/celebration-m.webp" alt="" loading="lazy" width="700" height="933" style="object-position:50% 25%"></div>
+          <div class="exp-txt"><span class="n">01</span><h3 data-i18n="ex2H">סדנאות פרטיות, משפחות וימי הולדת</h3><p data-i18n="ex2P">סדנה רק בשבילכם: למשפחה, לחברים, ליום הולדת, לקבוצה או לצוות מהעבודה.</p><a class="exp-cta" href="https://ig.me/m/areen_awidat" target="_blank" rel="noopener" data-i18n="exCta">לתיאום בהודעה</a></div></div></article>
+        <article class="dc"><div class="dc-in exp-card"><div class="exp-media"><img decoding="async" src="img/feast-m.webp" alt="" loading="lazy" width="700" height="1244" style="object-position:50% 60%"></div>
+          <div class="exp-txt"><span class="n">02</span><h3 data-i18n="ex1H">אמנות, אוכל אותנטי ומוזיקה חיה</h3><p data-i18n="ex1P">אפשר להזמין מראש חוויה אמנותית שמשלבת סדנה, אוכל אותנטי ומוזיקה חיה.</p><a class="exp-cta" href="https://ig.me/m/areen_awidat" target="_blank" rel="noopener" data-i18n="exCta">לתיאום בהודעה</a></div></div></article>
+        <article class="dc"><div class="dc-in exp-card"><div class="exp-media"><img decoding="async" src="img/art-cart-m.webp" alt="" loading="lazy" width="700" height="929" style="object-position:50% 55%"></div>
+          <div class="exp-txt"><span class="n">03</span><h3 data-i18n="ex3H">סדנאות ניידות: מגיעים אליכם</h3><p data-i18n="ex3P">בנוסף לסדנאות בסטודיו, אנו מציעים סדנאות אמנות ניידות ומגיעים עד אליכם – לבתי ספר, מוסדות, ארגונים, מקומות עבודה, אירועים פרטיים ומרחבים קהילתיים. כל סדנה מותאמת אישית לאופי הקבוצה, לגיל המשתתפים ולמקום.</p><a class="exp-cta" href="https://ig.me/m/areen_awidat" target="_blank" rel="noopener" data-i18n="exCta">לתיאום בהודעה</a></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="gal sec" id="gallery">
+    <div id="orbit"></div>
+    <div class="wrap">
+      <div id="gal"></div>
+    </div>
+  </section>
+
+  <section class="finale sec" id="contact">
+    <div class="wrap">
+      <div class="finale-head rv"><span class="num" data-i18n="socEye">תיאום והגעה</span><h2 data-i18n="socH">בואו נתאם סדנה.</h2></div>
+      <ol class="steps">
+        <li class="step rv">
+          <span class="step-n" aria-hidden="true">1</span>
+          <div class="step-txt"><h3 data-i18n="step1T">שלחו לנו הודעה</h3><p data-i18n="step1P">כתבו לנו בוואטסאפ איזו סדנה מעניינת אתכם, ונתאם יחד מועד.</p></div>
+          <a class="step-btn step-wa hm-wa" href="https://wa.me/972502817131" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span data-i18n="step1B">שלחו הודעה בוואטסאפ</span></a>
+        </li>
+        <li class="step-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M5 12l7 7 7-7"/></svg></li>
+        <li class="step rv" id="location">
+          <span class="step-n" aria-hidden="true">2</span>
+          <div class="step-txt"><h3 data-i18n="step2T">מגיעים אלינו</h3><p data-i18n="step2P">בלב מטעי הדובדבנים, בין מסעדה למג׳דל שמס, בדרך לברכת רם.</p></div>
+          <a class="step-btn step-waze hm-waze" href="https://waze.com/ul?q=Mas%27ade&amp;navigate=yes" target="_blank" rel="noopener"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M34 8.5c13.3 0 23 9.6 23 21.6 0 9.9-6.9 17.6-16.8 20.3H24.6c-4.6 0-7.8-2-9.3-5.3-3.4.2-6.6-1.2-8.6-4.1 3.6-.6 5.4-2.6 5.6-6.3.1-1.6.1-3.2.1-4.6C12.4 17.9 21.5 8.5 34 8.5z" fill="#fff" stroke="#000" stroke-width="3.6" stroke-linejoin="round"/><circle cx="28" cy="25.5" r="2.9"/><circle cx="42" cy="25.5" r="2.9"/><path d="M26.6 33.2c2.2 3.6 5 5.3 8.3 5.3s6.1-1.7 8.3-5.3" fill="none" stroke="#000" stroke-width="3.2" stroke-linecap="round"/><circle cx="24.6" cy="51.5" r="6.2"/><circle cx="45.4" cy="51.5" r="6.2"/></svg><span data-i18n="step2B">ניווט ב-Waze</span><span class="go" aria-hidden="true">←</span></a>
+        </li>
+      </ol>
+      <div class="follow rv"><span data-i18n="followT">עקבו אחרינו</span><p class="follow-p" data-i18n="followP"></p><div id="social" data-wa="off"></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span><span class="slogan" data-i18n="slogan">הרמוני… כי החיים עצמם יצירה אמנותית</span><span data-i18n="foot">© 2026 Harmony Studio · ערין עוידאת. כל הזכויות שמורות.</span></span>
+    <nav class="foot-legal" aria-label="מידע משפטי" data-i18n-aria="legalNav"><a href="accessibility.html" data-lg="accessibility" data-i18n="lgA11y">הצהרת נגישות</a><a href="privacy.html" data-lg="privacy" data-i18n="lgPriv">מדיניות פרטיות</a><a href="terms.html" data-lg="terms" data-i18n="lgTerms">תנאי שימוש</a></nav>
+  </div>
+  <div class="wrap foot-credit"><a class="dorb-credit" href="https://dor-b.co.il" target="_blank" rel="noopener"><span data-i18n="credit">אתר זה נבנה על ידי</span> <img src="img/dorb-logo.png" alt="DOR-B" width="110" height="40"></a></div>
+</footer>
+
+<a class="dm hm-wa" href="https://wa.me/972502817131" target="_blank" rel="noopener" aria-label="שליחת הודעה בוואטסאפ" data-i18n-aria="dmLabel">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script src="shared/theme-reveal.js"></script>
+<script src="shared/kinetic-menu.js"></script>
+<!-- GSAP + Lenis only where they help: mouse/trackpad devices without reduced motion. Phones skip the
+     download and ScrollTrigger's always-on frame loop (measured 29.10.2026); their native scrolling is smoother. -->
+<script>if(matchMedia('(pointer: fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.write('<script src="shared/vendor/gsap.min.js"><\/script><script src="shared/vendor/ScrollTrigger.min.js"><\/script><script src="shared/vendor/lenis.min.js"><\/script>')}</script>
+<script src="shared/container-scroll.js"></script>
+<script src="shared/a11y.js"></script>
+<script src="shared/harmony-text.js"></script>
+<script src="shared/harmony.js"></script>
+<script src="shared/video.js"></script>
+<script src="shared/app.js"></script>
+<script>
+(function(){
+  var T={
+    he:{skip:'דילוג לתוכן',menu:'תפריט',close:'סגירה',navLabel:'תפריט ראשי',nav1:'הסטודיו',nav2:'סדנאות',nav3:'גלריה',nav4:'יצירת קשר',nav5:'הגעה',heroP:'סטודיו לאמנות שבו משאירים את הטלפון בצד, נותנים מקום ליצירתיות, ויוצאים עם יצירה שעשיתם בעצמכם וזיכרון טוב שנשאר איתכם.',who:'ערין עוידאת | מורה ומדריכה לאמנות חזותית',cta1:'לשריון מקום בסדנה',cta2:'לסדנאות',stamp:'ידיים בחומר',cap:'סדנה בסטודיו',n1:'01 · הסטודיו',csH:'מוכנים לראות את הרמוני בלוק החדש?',csP:'וילונות מקרמה, ארונות עץ ישנים, כן ציור מול החלון, חדר ירוק ופטיו עם כיסאות צהובים בגינה. שולחן עבודה אחד ארוך, וכולם יושבים סביבו.',qSrc:'פבלו פיקאסו · מתוך הפיד של ערין',n2:'02 · סדנאות',wsH:'סדנאות יצירה לכל הטעמים.',wsP:'הצצה לכמה מהסדנאות שלנו. את כל הסדנאות והמחירים תמצאו במחירון המלא למטה.',w1:'סדנת קרמיקה',w1p:'עבודה על אובניים ובידיים, מגוש חומר ועד כלי שלכם.',w2:'סדנת נרות',w2p:'יציקה, צבע ופרחים מיובשים.',w3:'סדנת לבנדר',w3p:'סדנה בניחוח לבנדר. פרטים ותמונות בהיילייט באינסטגרם.',w4:'סדנה לקבוצה',w4p:'לקבוצה, לארגון או לחגיגה. כתבו לערין והיא תחזור אליכם.',more:'לפרטים באינסטגרם ←',dm:'שליחת הודעה ←',n3:'סיפורי אמנות',stH:'לכל צבע יש סיפור.',stP:'סדרת סרטונים קצרים של ערין על ההיסטוריה שמאחורי החומרים והצבעים שאנחנו משתמשים בהם היום.',s1:'כל צבע שאנחנו משתמשים בו בקלות – מאחוריו סיפור בן אלפי שנים',s2:'לכל תקופה יש סיפור, וכל סיפור השאיר חותם',s3:'יודעים למה קוראים לו הרמוני?',s4:'אולי פשוט צריך את הרגע הזה',n4:'04 · בקהילה',cmH:'יוצאים מהסטודיו.',cm1t:'אוקטובר הוורוד 2026',cm1:'סדנת נרות סתיו',cm1p:'סדנה לקבוצת ״ابقي قوية״ לרגל חודש המודעות לסרטן השד, ביוזמת מחלקת התרבות של המועצה המקומית מג׳דל שמס.',cm2t:'אוקטובר הוורוד 2026',cm2:'חטיבת הביניים אל-שביבה, בוקעאתא',cm2p:'יחד למען מודעות, מניעה ותקווה.',ctH:'יש לכם כיסא ליד השולחן.',ctP:'ההרשמה לסדנאות והשאלות עוברות כרגע דרך ההודעות באינסטגרם. כתבו לערין איזו סדנה מעניינת אתכם.',ctB:'הודעה לערין באינסטגרם',foot:'© 2026 Harmony Studio · ערין עוידאת. כל הזכויות שמורות.',dmLabel:'שליחת הודעה בוואטסאפ',altHero:'קבוצת משתתפות בסדנת נרות סביב שולחן העבודה',altStudio:'חלל סטודיו הרמוני: מטריות מצוירות תלויות מהתקרה, צמחים, ארונות עץ ושולחן עבודה עם מפות משובצות',alt4:'נר בעבודת יד מסדנת נרות הסתיו',alt5:'פעילות אוקטובר הוורוד בחטיבת הביניים',dark:'מצב כהה',langLabel:'שפה',followP:'',altHeroBoards:'שולחן הסדנה ערוך עם לוחות עגולים, מכחולים וצבעים, מתחת לצמחים ולמטריות המצוירות',vLounge:'סרטון: פינת הישיבה בסטודיו, כן הציור ומנורת המקרמה מול החלונות',altHeroWs:'משתתפות בסדנה בסטודיו, עובדות סביב השולחן הארוך מתחת לצמחים',socEye:'תיאום והגעה',socH:'בואו נתאם סדנה.',step1T:'שלחו לנו הודעה',step1P:'כתבו לנו בוואטסאפ איזו סדנה מעניינת אתכם, ונתאם יחד מועד.',step1B:'שלחו הודעה בוואטסאפ',step2T:'מגיעים אלינו',step2P:'בלב מטעי הדובדבנים, בין מסעדה למג׳דל שמס, בדרך לברכת רם.',step2B:'ניווט ב-Waze',followT:'עקבו אחרינו',momentsLabel:'רגעים מהסטודיו',vMobile:'סרטון: סדנה ניידת בחוץ',kicker:'ערין עוידאת | מורה ומדריכה לאמנות חזותית',word:'הרמוני',vFilm:'סרטון: סיור קצר בסטודיו הרמוני בלוק החדש',vTour:'סרטון: הליכה בתוך הסטודיו, מפינת הישיבה ועד החדר הירוק',altGreen:'החדר הירוק בסטודיו: ספות צבעוניות, שטיח מצויר ושלטים בערבית ובאנגלית על הקיר',altWall:'פינת הציור בסטודיו: קיר ירוק עם שלטים, מכחולים, צבעים ופלטה על שולחן עץ',altCab:'שולחן העבודה בסטודיו: אגרטלים מפוספסים עם פרחי קרמיקה, ארונות עץ מצוירים ווילונות מקרמה',t1:'חומר, אדמה ויציקה',t1p:'חרס על אובניים, פסיפס, טרצו, פימו ואפוקסי.',t2:'צבע ומכחול',t2p:'צבעי מים, זכוכית, מנדלות, טקסטורה ודקופאז׳.',t3:'בד, צמר וחוט',t3p:'הדפסה על בדים, הדפס שמש, רקמה, ליבוד בצמר ומקרמה.',t4:'ריח, אור ותכשיטים',t4p:'נרות מעוצבים, סבון טבעי, ירח מואר ותכשיטים.',seeP:'למחירון ↓',plNum:'מחירון',plH:'כל הסדנאות, כל המחירים.',plPoster:'המחירון המקורי',plNote:'המחירים כפי שהם מופיעים במחירון של הסטודיו. לשריון מקום ולפרטים, שלחו הודעה לערין.',altLounge:'פינת הישיבה בסטודיו: ספות ירוקות, כריות פרחוניות ווילונות מקרמה מול העצים',slogan:'הרמוני… כי החיים עצמם יצירה אמנותית',legalNav:'מידע משפטי',lgA11y:'הצהרת נגישות',lgPriv:'מדיניות פרטיות',lgTerms:'תנאי שימוש',credit:'אתר זה נבנה על ידי'},
+    ar:{skip:'تخطَّ إلى المحتوى',menu:'القائمة',close:'إغلاق',navLabel:'القائمة الرئيسية',nav1:'الاستوديو',nav2:'الورش',nav3:'المعرض',nav4:'تواصل معنا',nav5:'الوصول',heroP:'استوديو فنون بتترك فيه تلفونك عجنب، بتفسح مجال لإبداعك، وبتطلع حامل بإيديك قطعة فنية من صنعك، وذكرى حلوة بتضل معك.',who:'عرين عويدات | معلّمة ومرشدة في الفنون البصرية',cta1:'احجز مكانك في الورشة',cta2:'الورش',stamp:'إيدين بالطين',cap:'ورشة بالاستوديو',n1:'01 · الاستوديو',csH:'جاهزين تشوفوا هارموني بحلّته الجديدة؟',csP:'ستائر من المكرمية، وخزائن خشبية قديمة، وحامل رسم أمام النافذة، وغرفة خضراء، وفناء بكراسٍ صفراء في الحديقة. طاولة عمل واحدة طويلة يجتمع حولها الجميع.',qSrc:'بابلو بيكاسو · من صفحة عرين',n2:'02 · الورش',wsH:'ورشات إبداعية لكل الأذواق.',wsP:'لمحة عن بعض ورشنا. تجدون جميع الورش والأسعار في قائمة الأسعار الكاملة أدناه.',w1:'ورشة سيراميك',w1p:'شغل على الدولاب وباليد، من كتلة طين لقطعة إلك.',w2:'ورشة شموع',w2p:'صبّ، ألوان وورد مجفّف.',w3:'ورشة لافندر',w3p:'ورشة بريحة اللافندر. التفاصيل والصور بالهايلايت على إنستغرام.',w4:'ورشة لمجموعة',w4p:'لمجموعة، لمؤسسة أو لمناسبة. ابعتوا لعرين وبترجعلكم.',more:'التفاصيل على إنستغرام ←',dm:'ابعت رسالة ←',n3:'حكايات الفن',stH:'لكل لون حكاية.',stP:'سلسلة فيديوهات قصيرة لعرين عن التاريخ اللي ورا المواد والألوان اللي منستعملها اليوم.',s1:'كل لون منستعمله اليوم بسهولة… ورا حكاية عمرها آلاف السنين',s2:'كل عصر إلو حكاية، وكل حكاية تركت أثر',s3:'بتعرفوا ليش اسمه هارموني؟',s4:'يمكن إنت بس بحاجة لهاللحظة',n4:'04 · بالمجتمع',cmH:'برّا الاستوديو.',cm1t:'أكتوبر الوردي 2026',cm1:'ورشة شموع الخريف',cm1p:'ورشة مع مجموعة «ابقي قوية» بمناسبة شهر التوعية لسرطان الثدي، قسم الثقافة – مجلس مجدل شمس المحلي.',cm2t:'أكتوبر الوردي 2026',cm2:'إعدادية الشبيبة – بقعاثا',cm2p:'معًا من أجل الوعي، الوقاية، والأمل.',ctH:'كرسيك جاهز على الطاولة.',ctP:'التسجيل والأسئلة حاليًا عن طريق رسائل إنستغرام. احكوا لعرين أي ورشة بتهمكم.',ctB:'رسالة لعرين على إنستغرام',foot:'© 2026 Harmony Studio · عرين عويدات. جميع الحقوق محفوظة.',dmLabel:'ابعثولنا رسالة عبر الواتساب',altHero:'مشاركات بورشة شموع حول الطاولة',altStudio:'استوديو هارموني: مظلات مرسومة معلّقة بالسقف، نباتات، خزائن خشب وطاولة شغل',alt4:'شمعة مصنوعة يدويًا من ورشة شموع الخريف',alt5:'فعالية أكتوبر الوردي بالإعدادية',dark:'الوضع الداكن',langLabel:'اللغة',socH:'يلا ننسّق ورشتكم!',step1T:'ابعثولنا رسالة',step1P:'تواصلوا معنا عبر الواتساب، واحكولنا عن الورشة اللي حابين تشاركوا فيها، ومننسّق معكم الموعد وكل التفاصيل بكل حب.',step1B:'ابعثولنا رسالة عبر الواتساب',step2T:'تعالوا لعنا',step2P:'بنستناكم بقلب بساتين الكرز، بين مسعدة ومجدل شمس، على الطريق المؤدي إلى بركة رام، بأجواء دافئة ومليانة فن وإبداع.',step2B:'وصلوا لعنا عبر Waze',followT:'تابعونا',followP:'خلّيكم قريبين من عالم هارموني، وتابعوا جديد ورشاتنا وتجاربنا الفنية ولحظاتنا الحلوة.',slogan:'هارموني... لأن الحياة نفسها عمل فني.',altHeroBoards:'طاولة الورشة جاهزة بألواح مستديرة وفراشٍ وألوان، تحت النباتات والمظلّات المرسومة',vFilm:'فيديو: جولة قصيرة في استوديو هارموني بحلّته الجديدة',vLounge:'فيديو: ركن الجلوس في الاستوديو وحامل الرسم ومصباح المكرمية أمام النوافذ',socEye:'التنسيق والوصول',expEye:'التجارب',expH:'تجربة هارموني',exCta:'للتنسيق عبر رسالة',visH:'أكثر بكثير من مجرد استوديو للفنون',visP1:'هارموني ليس مجرد استوديو للفنون، بل هو بيت للإبداع والتجربة والتواصل الإنساني. مساحة يلتقي فيها الفن بالطبيعة والثقافة والتراث الأصيل، وتتحوّل فيها اللحظات البسيطة إلى تجارب فنية تحمل معاني عميقة وذكريات لا تُنسى.',visQ:'«أؤمن بأن داخل كل إنسان طاقة إبداعية تنتظر أن تُكتشف، وأن الفن ليس مجرد عمل نصنعه بأيدينا، بل تجربة نعيشها بكل حواسنا. في هارموني، أسعى إلى أن يجد كل زائر لحظة تخصّه، يبتعد فيها عن ضجيج الحياة، ويقترب من ذاته، ويكتشف متعة الإبداع في أجواء تجمع بين الفن والطبيعة ودفء اللقاء الإنساني».',visBy:'عرين عويدات – مؤسِّسة استوديو هارموني',locP:'يقع استوديو هارموني بين بساتين الكرز، في المنطقة الممتدة بين مسعدة ومجدل شمس، على الطريق المؤدي إلى بركة رام. ويتميّز بإطلالة طبيعية ساحرة وأجواء هادئة تبعث على الإلهام والسكينة، وتمنح الزائر فرصة للاستمتاع بتجربة فنية استثنائية.',famEye:'عائلة هارموني',ex1H:'الفن والمأكولات التراثية والموسيقى الحيّة',ex1P:'ويمكن، بالحجز المسبق، الجمع بين الورش الفنية ووجبة من المأكولات التراثية الأصيلة، أو إضافة الموسيقى الحيّة، لتصبح التجربة لقاءً متكاملًا يجمع بين الفن والثقافة والضيافة.',ex2H:'ورش للأفراد والعائلات والمجموعات',ex2P:'نقدّم في هارموني مجموعة متنوّعة من الورش الفنية التي تناسب الأفراد، والعائلات، ومجموعات الأصدقاء، والمؤسسات والفرق التربوية، في أجواء تشجّع على الإبداع والتجربة والاكتشاف.',ex3H:'ورش فنية خارج الاستوديو',ex3P:'كما نوفّر إمكانية تنظيم الورش الفنية خارج الاستوديو، في المدارس والمؤسسات والمراكز المجتمعية والمناسبات الخاصة، وفق احتياجات كل مجموعة.',altHeroWs:'مشاركات بورشة بالاستوديو، شغّالين حول الطاولة الطويلة تحت النباتات',momentsLabel:'لحظات من الاستوديو',vMobile:'فيديو: ورشة متنقّلة بالهوا الطلق',kicker:'عرين عويدات | معلّمة ومرشدة في الفنون البصرية',word:'هارموني',vTour:'فيديو: مشوار جوّا الاستوديو، من زاوية القعدة للغرفة الخضرا',altGreen:'الغرفة الخضرا بالاستوديو: كنب ملوّن، سجادة مرسومة ولافتات بالعربي والإنجليزي عالحيط',altWall:'زاوية الرسم بالاستوديو: حيط أخضر عليه لافتات، فراشي، ألوان وباليتة على طاولة خشب',altCab:'طاولة الشغل بالاستوديو: مزهريات مقلّمة مع ورد سيراميك، خزائن خشب مرسومة وستائر مكرمية',t1:'طين وصبّ',t1p:'خزف على الدولاب، فسيفساء، تيرازو، فيمو وإيبوكسي.',t2:'ألوان وفرشاة',t2p:'ألوان مائية، زجاج، ماندالا، تكستورة وديكوباج.',t3:'قماش وصوف وخيط',t3p:'طباعة على الأقمشة، طباعة شمسية، تطريز، تلبيد بالصوف ومكرمية.',t4:'عطر وضوء وإكسسوارات',t4p:'شموع معطرة، صابون طبيعي، قمر مضيء وإكسسوارات.',seeP:'للأسعار ↓',plNum:'الأسعار',plH:'كل الورشات، كل الأسعار.',plPoster:'قائمة الأسعار الأصلية',plNote:'الأسعار متل ما هي بقائمة أسعار الاستوديو. للحجز وللتفاصيل، ابعتوا رسالة لعرين.',altLounge:'زاوية القعدة بالاستوديو: كنب أخضر، مخدات مورّدة وستائر مكرمية قدّام الشجر',legalNav:'معلومات قانونية',lgA11y:'بيان الإتاحة',lgPriv:'سياسة الخصوصية',lgTerms:'شروط الاستخدام',credit:'تم بناء هذا الموقع بواسطة'},
+    en:{skip:'Skip to content',menu:'Menu',close:'Close',navLabel:'Main menu',nav1:'The studio',nav2:'Workshops',nav3:'Gallery',nav4:'Contact',nav5:'Getting here',heroP:'An art studio where you leave your phone aside, make room for your creativity, and walk out holding a piece you made yourself, and a sweet memory that stays with you.',who:'Areen Awidat | visual art teacher & instructor',cta1:'Save your seat',cta2:'Workshops',stamp:'Hands in clay',cap:'A workshop at the studio',n1:'01 · The studio',csH:'Ready to see Harmony’s new look?',csP:'Macramé curtains, old wooden cabinets, an easel by the window, a green room and a garden patio with yellow chairs. One long work table, and everyone sits around it.',qSrc:'Pablo Picasso · from Areen’s feed',n2:'02 · Workshops',wsH:'Creative workshops for every taste.',wsP:'A glimpse of some of our workshops. Every workshop and price is in the full price list below.',w1:'Ceramics workshop',w1p:'On the wheel and by hand, from a lump of clay to a piece of your own.',w2:'Candle workshop',w2p:'Pouring, colour and dried flowers.',w3:'Lavender workshop',w3p:'A lavender-scented workshop. Details and photos in the Instagram highlight.',w4:'Group workshop',w4p:'For a group, an organisation or a celebration. Message Areen and she will get back to you.',more:'Details on Instagram →',dm:'Send a message →',n3:'Art stories',stH:'Every colour has a story.',stP:'A series of short videos by Areen about the history behind the materials and colours we use today.',s1:'Every colour we use so easily has a story thousands of years old',s2:'Every era has a story, and every story left a mark',s3:'Do you know why it is called Harmony?',s4:'Maybe you just need this moment',n4:'04 · Community',cmH:'Beyond the studio.',cm1t:'Pink October 2026',cm1:'Autumn candle workshop',cm1p:'A workshop with the “Stay Strong” group for Breast Cancer Awareness Month, with the culture department of Majdal Shams local council.',cm2t:'Pink October 2026',cm2:'Al-Shabiba Middle School, Buq’ata',cm2p:'Together for awareness, prevention and hope.',ctH:'There’s a seat for you at the table.',ctP:'Sign-ups and questions currently go through Instagram messages. Tell Areen which workshop you’d like to join.',ctB:'Message Areen on Instagram',foot:'© 2026 Harmony Studio · Areen Awidat. All rights reserved.',dmLabel:'Message us on WhatsApp',altHero:'Participants at a candle workshop table',altStudio:'Harmony Studio: painted umbrellas hanging from the ceiling, plants, wooden cabinets and a work table with gingham runners',alt4:'A handmade candle from the autumn candle workshop',alt5:'Pink October activity at the middle school',dark:'Dark mode',langLabel:'Language',followP:'',altHeroBoards:'The workshop table set with round boards, brushes and paints, under the plants and painted umbrellas',vLounge:'Video: the studio lounge, the easel and the macramé lamp by the windows',altHeroWs:'Participants at a workshop in the studio, working at the long table under the plants',socEye:'Book & visit',socH:'Let’s arrange a workshop.',step1T:'Send us a message',step1P:'Tell us on WhatsApp which workshop you like and we’ll set a date together.',step1B:'Message us on WhatsApp',step2T:'Come over',step2P:'Among the cherry orchards between Mas’ade and Majdal Shams, on the way to Birkat Ram.',step2B:'Navigate with Waze',followT:'Follow us',momentsLabel:'Moments from the studio',vMobile:'Video: a mobile workshop outdoors',kicker:'Areen Awidat | visual art teacher & instructor',word:'Harmony',vFilm:'Video: a short look at Harmony Studio’s new look',vTour:'Video: a walk through the studio, from the lounge to the green room',altGreen:'The green room: colourful sofas, a painted rug and Arabic and English signs on the wall',altWall:'The painting corner: a green wall with signs, brushes, paints and a palette on a wooden table',altCab:'The studio work table: striped vases with ceramic flowers, painted wooden cabinets and macramé curtains',t1:'Clay & casting',t1p:'Pottery on the wheel, mosaic, terrazzo, Fimo and epoxy.',t2:'Paint & brush',t2p:'Watercolour, glass, mandalas, texture painting and decoupage.',t3:'Fabric, wool & thread',t3p:'Fabric printing, sun printing, embroidery, wool felting and macramé.',t4:'Scent, light & jewellery',t4p:'Designer candles, natural soap, a glowing moon lamp and jewellery.',seeP:'Prices ↓',plNum:'Prices',plH:'Every workshop, every price.',plPoster:'Original price list',plNote:'Prices as they appear on the studio’s price list. To save a seat or ask anything, message Areen.',altLounge:'The studio lounge: green sofas, floral cushions and macramé curtains facing the trees',slogan:'Harmony… because life itself is a work of art',legalNav:'Legal information',lgA11y:'Accessibility statement',lgPriv:'Privacy policy',lgTerms:'Terms of use',credit:'Site built by'}
+  };
+  var root=document.documentElement;
+  function setLang(l){
+    var d=Object.assign({},HarmonyText[l]||HarmonyText.he,T[l]||T.he);root.lang=l;root.dir=l==='en'?'ltr':'rtl';
+    document.querySelectorAll('[data-i18n]').forEach(function(e){e.textContent=d[e.dataset.i18n]});
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(e){e.alt=d[e.dataset.i18nAlt]});
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(e){e.setAttribute('aria-label',d[e.dataset.i18nAria])});
+    document.querySelector('.tr-toggle').setAttribute('aria-label',d.dark);
+    document.querySelector('.langs').setAttribute('aria-label',d.langLabel);
+    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===l))});
+    document.querySelectorAll('[data-lg]').forEach(function(a){a.href=a.dataset.lg+(l==='en'?'-en':'')+'.html'});
+    Harmony.apply(l);
+    try{localStorage.setItem('harmony-lang',l)}catch(e){}
+  }
+  document.querySelectorAll('.langs button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+  Harmony.mount({workshops:document.getElementById('wk'),variant:'stairs',orbit:document.getElementById('orbit'),gallery:document.getElementById('gal'),social:document.getElementById('social'),socialVariant:'dock',team:document.getElementById('team')});
+  setLang(root.lang||'he');
+
+  var pre=document.getElementById('pre'),n=document.getElementById('preN');
+  var img=document.querySelector('.hero2-img'),done=img.complete?1:0,shown=0;
+  if(!done){img.addEventListener('load',function(){done=1});img.addEventListener('error',function(){done=1})}
+  function tick(){var target=done?100:Math.min(90,shown+2);shown+=Math.max(1,Math.ceil((target-shown)/3));if(shown>target)shown=target;n.textContent=shown+'%';if(shown<100)requestAnimationFrame(tick);else setTimeout(function(){pre.classList.add('done')},150)}
+  requestAnimationFrame(tick);
+  setTimeout(function(){done=1},2500);
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+})();
+</script>
+<script src="shared/depth-card.js"></script>
+<script src="shared/floating-dock.js"></script>
+<script src="shared/staircase.js"></script>
+<script src="shared/orbit-arch.js"></script>
+<script src="shared/smooth.js"></script>
+</body>
+</html>

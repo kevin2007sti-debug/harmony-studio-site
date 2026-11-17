@@ -1,0 +1,61 @@
+// Section copy shared by both concepts. Hebrew is Areen's own text (28.10.2026) where she wrote
+// it; the Arabic and English versions are our translations for her to check.
+window.HarmonyText = {
+  he: {
+    visP2: '',
+    visEye: 'החזון של הרמוני', visH: 'הרבה מעבר לסטודיו לאמנות.',
+    visP1: 'הרמוני הוא הרבה מעבר לסטודיו לאמנות. זהו בית ליצירה, לחיבור בין אנשים, לתרבות ולחוויה. מקום שבו האמנות פוגשת את הטבע, המסורת והאירוח האותנטי.',
+    visQ: '״אני מאמינה שכל אדם יכול ליצור, להתחבר לעצמו ולגלות את הכוח שבאמנות. בהרמוני כל מפגש הוא חוויה המשלבת יצירה, אנשים, טבע ואירוח מכל הלב.״',
+    visBy: 'ערין עוידאת, מייסדת הסטודיו',
+    wsEye: 'סדנאות', wsH: 'סדנאות יצירה לכל הטעמים.', wsP: 'לכל סדנה: מה עושים בה ומה המחיר. לחצו על סוג כדי לסנן.',
+    expEye: 'חוויות', expH: 'לא רק סדנה. חוויה שלמה.',
+    ex1H: 'אמנות, אוכל אותנטי ומוזיקה חיה', ex1P: 'אפשר להזמין מראש חוויה אמנותית שמשלבת סדנה, אוכל אותנטי ומוזיקה חיה.',
+    ex2H: 'סדנאות פרטיות, משפחות וימי הולדת', ex2P: 'סדנה רק בשבילכם: למשפחה, לחברים, ליום הולדת, לקבוצה או לצוות מהעבודה.',
+    ex3H: 'סדנאות ניידות: מגיעים אליכם', ex3P: 'בנוסף לסדנאות בסטודיו, אנו מציעים סדנאות אמנות ניידות ומגיעים עד אליכם – לבתי ספר, מוסדות, ארגונים, מקומות עבודה, אירועים פרטיים ומרחבים קהילתיים. כל סדנה מותאמת אישית לאופי הקבוצה, לגיל המשתתפים ולמקום.',
+    exCta: 'לתיאום בהודעה',
+    galEye: 'גלריה', galH: 'רגעים מהסטודיו.', galP: 'תמונות וסרטונים מהסדנאות ומהבית של הרמוני. לחצו להגדלה.',
+    famEye: 'משפחת הרמוני', famH: 'האנשים מאחורי הסטודיו.',
+    locEye: 'מיקום', locH: 'בלב מטעי הדובדבנים.',
+    locP: 'הסטודיו שוכן בלב מטעי הדובדבנים, בין מסעדה למג׳דל שמס, בדרך לברכת רם, מוקף בנוף קסום שמעניק השראה, שלווה וחיבור לטבע.',
+    socEye: 'יצירת קשר', socH: 'בואו נתאם סדנה.',
+    socP: 'אין לוח תאריכים קבוע. כתבו לנו בוואטסאפ או ברשתות, ונתאם יחד מועד שמתאים לכם.'
+  },
+  ar: {
+    visP2: 'نؤمن في هارموني بأن الفن ليس حكرًا على الموهوبين، بل هو لغة إنسانية متاحة للجميع، ومساحة حرّة للتعبير عن الذات، واكتشاف القدرات، والتواصل مع المشاعر.',
+    visEye: 'رؤية هارموني', visH: 'أكثر بكثير من مجرد استوديو للفنون',
+    visP1: 'هارموني ليس مجرد استوديو للفنون، بل هو بيت للإبداع والتجربة والتواصل الإنساني. مساحة يلتقي فيها الفن بالطبيعة والثقافة والتراث الأصيل، وتتحوّل فيها اللحظات البسيطة إلى تجارب فنية تحمل معاني عميقة وذكريات لا تُنسى.',
+    visQ: '«أؤمن بأن داخل كل إنسان طاقة إبداعية تنتظر أن تُكتشف، وأن الفن ليس مجرد عمل نصنعه بأيدينا، بل تجربة نعيشها بكل حواسنا. في هارموني، أسعى إلى أن يجد كل زائر لحظة تخصّه، يبتعد فيها عن ضجيج الحياة، ويقترب من ذاته، ويكتشف متعة الإبداع في أجواء تجمع بين الفن والطبيعة ودفء اللقاء الإنساني».',
+    visBy: 'عرين عويدات – مؤسِّسة استوديو هارموني',
+    wsEye: 'الورش', wsH: 'ورشات إبداعية لكل الأذواق.', wsP: 'لمحة عن بعض ورشنا. تجدون جميع الورش والأسعار في قائمة الأسعار الكاملة أدناه.',
+    expEye: 'التجارب', expH: 'تجربة هارموني',
+    ex1H: 'الفن والمأكولات التراثية والموسيقى الحيّة', ex1P: 'ويمكن، بالحجز المسبق، الجمع بين الورش الفنية ووجبة من المأكولات التراثية الأصيلة، أو إضافة الموسيقى الحيّة، لتصبح التجربة لقاءً متكاملًا يجمع بين الفن والثقافة والضيافة.',
+    ex2H: 'ورش للأفراد والعائلات والمجموعات', ex2P: 'نقدّم في هارموني مجموعة متنوّعة من الورش الفنية التي تناسب الأفراد، والعائلات، ومجموعات الأصدقاء، والمؤسسات والفرق التربوية، في أجواء تشجّع على الإبداع والتجربة والاكتشاف.',
+    ex3H: 'ورش فنية خارج الاستوديو', ex3P: 'كما نوفّر إمكانية تنظيم الورش الفنية خارج الاستوديو، في المدارس والمؤسسات والمراكز المجتمعية والمناسبات الخاصة، وفق احتياجات كل مجموعة.',
+    exCta: 'للتنسيق عبر رسالة',
+    galEye: 'المعرض', galH: 'لحظات من الاستوديو', galP: 'صور ومقاطع من الورش ومن بيت هارموني. اضغطوا على الصورة لتكبيرها.',
+    famEye: 'عائلة هارموني', famH: 'الناس اللي ورا الاستوديو.',
+    locEye: 'الموقع', locH: 'بين بساتين الكرز',
+    locP: 'يقع استوديو هارموني بين بساتين الكرز، في المنطقة الممتدة بين مسعدة ومجدل شمس، على الطريق المؤدي إلى بركة رام. ويتميّز بإطلالة طبيعية ساحرة وأجواء هادئة تبعث على الإلهام والسكينة، وتمنح الزائر فرصة للاستمتاع بتجربة فنية استثنائية.',
+    socEye: 'التنسيق والوصول', socH: 'لننسّق ورشتكم معًا',
+    socP: 'لا يوجد جدول مواعيد ثابت. راسلونا عبر واتساب أو مواقع التواصل، وسنتّفق معًا على موعد يناسبكم.'
+  },
+  en: {
+    visP2: '',
+    visEye: 'Harmony’s vision', visH: 'Much more than an art studio.',
+    visP1: 'Harmony is much more than an art studio. It is a home for creating, for bringing people together, for culture and for experience: a place where art meets nature, tradition and genuine hospitality.',
+    visQ: '“I believe everyone can create, connect with themselves and discover the power of art. At Harmony every gathering is an experience that brings together creating, people, nature and wholehearted hospitality.”',
+    visBy: 'Areen Awidat, founder',
+    wsEye: 'Workshops', wsH: 'Creative workshops for every taste.', wsP: 'For each workshop: what you make and what it costs. Tap a type to filter.',
+    expEye: 'Experiences', expH: 'Not just a workshop. A whole experience.',
+    ex1H: 'Art, authentic food and live music', ex1P: 'Book ahead for an art experience that combines a workshop with authentic food and live music.',
+    ex2H: 'Private workshops, families and birthdays', ex2P: 'A workshop just for you: for family, friends, a birthday, a group or a team from work.',
+    ex3H: 'Mobile workshops: we come to you', ex3P: 'Besides the workshops at the studio, we offer mobile art workshops and come to you: schools, institutions, organisations, workplaces, private events and community spaces. Each workshop is tailored to the group, the participants’ age and the place.',
+    exCta: 'Arrange by message',
+    galEye: 'Gallery', galH: 'Moments from the studio.', galP: 'Photos and videos from the workshops and from Harmony’s home. Tap to enlarge.',
+    famEye: 'The Harmony family', famH: 'The people behind the studio.',
+    locEye: 'Location', locH: 'Among the cherry orchards.',
+    locP: 'The studio sits among the cherry orchards between Mas’ade and Majdal Shams, on the way to Birkat Ram, surrounded by a magical landscape that brings inspiration, calm and a closeness to nature.',
+    socEye: 'Contact', socH: 'Let’s arrange a workshop.',
+    socP: 'There is no fixed calendar. Message us on WhatsApp or social media and we’ll find a date that suits you together.'
+  }
+};

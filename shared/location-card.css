@@ -1,0 +1,55 @@
+/* Motion library #15: Location card. No dependencies (pair with location-card.js).
+   A small card with the business's place name tilts toward the pointer; opening it grows
+   the card, draws a stylised street grid line by line, pops in a few blocks and drops a
+   pin in the middle, then shows the real address and navigation links.
+   Taken from "expand-map": the motion only. framer-motion, the "Live" badge (it implied
+   live tracking that doesn't exist), the emerald glow and the San Francisco demo were left
+   out. The drawing is decorative, not a real map: the address, coordinates and links must
+   be the client's real ones.
+
+   Markup (see preview.html for the full drawing):
+   <div class="lc">
+     <button class="lc-card" type="button" aria-expanded="false" aria-controls="lc-more">
+       <span class="lc-map" aria-hidden="true"> …svg roads + .lc-block + .lc-pin… </span>
+       <span class="lc-name">שם המקום</span>
+     </button>
+     <div class="lc-more" id="lc-more" hidden> address + links </div>
+   </div> */
+
+.lc{--lc-face:var(--card,#fff);--lc-ink:currentColor;--lc-line:color-mix(in oklab,currentColor 18%,transparent);--lc-pin:#c2552d;
+  display:inline-grid;gap:12px;justify-items:start;perspective:1000px}
+.lc-card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;width:240px;height:140px;max-width:100%;padding:18px;
+  border:1px solid var(--lc-line);border-radius:18px;background:var(--lc-face);color:inherit;font:inherit;text-align:start;cursor:pointer;
+  overflow:hidden;transform-style:preserve-3d;transform:rotateX(var(--lc-rx,0deg)) rotateY(var(--lc-ry,0deg));
+  transition:width .45s cubic-bezier(.3,1.15,.4,1),height .45s cubic-bezier(.3,1.15,.4,1),transform .15s ease-out}
+.lc-card[aria-expanded=true]{width:min(360px,100vw - 32px);height:280px}
+.lc-card:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.lc-name{position:relative;z-index:1;font-weight:600;transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.lc-card:hover .lc-name{transform:translateX(calc(4px * var(--lc-dir,1)))}
+[dir=rtl] .lc{--lc-dir:-1}
+.lc-name::after{content:"";display:block;height:1px;margin-top:6px;background:var(--lc-pin);transform-origin:var(--lc-start,left);transform:scaleX(.3);transition:transform .4s ease-out}
+[dir=rtl] .lc-name::after{--lc-start:right}
+.lc-card:hover .lc-name::after,.lc-card[aria-expanded=true] .lc-name::after{transform:scaleX(1)}
+
+/* Drawing: hidden when closed, drawn in when open */
+.lc-map{position:absolute;inset:0;opacity:0;transition:opacity .4s .1s}
+.lc-card[aria-expanded=true] .lc-map{opacity:1}
+.lc-map svg:not(.lc-pin){position:absolute;inset:0;width:100%;height:100%}
+.lc-map line{stroke:currentColor;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .6s ease-out}
+.lc-map line.lc-main{stroke-width:4;opacity:.25}.lc-map line.lc-side{stroke-width:1.5;opacity:.12}
+.lc-card[aria-expanded=true] .lc-map line{stroke-dashoffset:0}
+.lc-block{position:absolute;border-radius:3px;background:currentColor;opacity:0;transform:scale(.8);transition:opacity .4s,transform .4s}
+.lc-card[aria-expanded=true] .lc-block{opacity:.14;transform:none}
+.lc-pin{position:absolute;left:50%;top:50%;width:32px;height:32px;margin:-30px 0 0 -16px;transform:translateY(-20px) scale(0);
+  transition:transform .5s cubic-bezier(.3,1.6,.4,1) .3s}
+.lc-pin path{fill:var(--lc-pin)}.lc-pin circle{fill:var(--lc-face)}
+.lc-card[aria-expanded=true] .lc-pin{transform:none}
+.lc-card[aria-expanded=true] .lc-name{text-shadow:0 0 12px var(--lc-face)}
+
+.lc-more{display:grid;gap:8px;font-size:14px}
+.lc-more address{font-style:normal}
+.lc-links{display:flex;flex-wrap:wrap;gap:8px}
+.lc-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--lc-line);color:inherit;text-decoration:none;font-weight:600}
+.lc-links a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){.lc-card,.lc-card *{transition:none!important}.lc-card{transform:none}}

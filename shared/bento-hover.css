@@ -1,0 +1,40 @@
+/* Motion library #19: Bento hover. CSS only.
+   A bento grid of feature tiles of different sizes, each with an image or texture behind.
+   Hovering (or focusing) a tile lifts its title block, shrinks its icon, dims the tile a
+   touch and slides a "more" link up from the bottom edge. On touch screens the link is
+   always visible, since there is no hover.
+   Taken from magicui "bento-grid": motion and layout only; Radix icons, the shadcn Button
+   and the demo features were left out.
+   Markup:
+   <div class="bg-grid">
+     <article class="bg-tile" style="--span:2">        (--span: rows, --cols on wide screens)
+       <div class="bg-back" aria-hidden="true"><img src="…" alt=""></div>
+       <div class="bg-text"><svg class="bg-icon">…</svg><h3>…</h3><p>…</p></div>
+       <a class="bg-cta" href="…">לפרטים <span aria-hidden="true">←</span></a>
+     </article> …
+   </div> */
+
+.bg-grid{--bg-face:var(--card,#fff);--bg-line:color-mix(in oklab,currentColor 10%,transparent);
+  display:grid;grid-template-columns:1fr;grid-auto-rows:20rem;gap:1rem}
+@media (min-width:900px){.bg-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .bg-tile{grid-row:span var(--span,1);grid-column:span var(--cols,1)}}
+.bg-tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border-radius:16px;
+  background:var(--bg-face);box-shadow:0 0 0 1px var(--bg-line),0 2px 4px rgba(0,0,0,.05),0 12px 24px rgba(0,0,0,.05)}
+.bg-back{position:absolute;inset:0;overflow:hidden}
+.bg-back img{width:100%;height:100%;object-fit:cover;opacity:.55;transition:transform .5s ease}
+.bg-tile::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .3s;pointer-events:none}
+.bg-text{position:relative;z-index:1;display:flex;flex-direction:column;gap:.25rem;padding:1.5rem;transition:transform .3s ease}
+.bg-icon{width:3rem;height:3rem;transform-origin:var(--bg-origin,left) center;transition:transform .3s ease-in-out}
+[dir=rtl] .bg-icon{--bg-origin:right}
+.bg-text h3{margin:0;font-size:1.25rem}
+.bg-text p{margin:0;opacity:.7;max-width:40ch}
+.bg-cta{position:absolute;bottom:0;inset-inline-start:0;z-index:2;display:inline-flex;align-items:center;gap:.5rem;min-height:44px;margin:1rem;
+  padding:0 .75rem;border-radius:8px;color:inherit;font-weight:600;text-decoration:none;opacity:0;transform:translateY(2.5rem);transition:opacity .3s,transform .3s}
+.bg-cta:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.bg-tile:is(:hover,:focus-within) .bg-text{transform:translateY(-2.5rem)}
+.bg-tile:is(:hover,:focus-within) .bg-icon{transform:scale(.75)}
+.bg-tile:is(:hover,:focus-within) .bg-cta{opacity:1;transform:none}
+.bg-tile:is(:hover,:focus-within)::after{background:rgba(0,0,0,.03)}
+.bg-tile:hover .bg-back img{transform:scale(1.04)}
+@media (hover:none){.bg-text{transform:translateY(-2.5rem)}.bg-cta{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.bg-tile *{transition:none!important}}
